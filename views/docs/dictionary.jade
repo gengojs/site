@@ -1,0 +1,142 @@
+h1#dictionary #{__("dictionary.heading.dictionary")}
+    h3#setup
+      strong Setup
+    p #{__("dictionary.paragraph.setup")}
+    br
+    pre.language-javascript
+      code.
+        //ja.js
+
+        //router: false
+        module.exports = {
+            "Welcome to Gengo.js": "Gengo.jsへようこそ",
+            "multiline.test": [
+              "Gengo.js",
+              "へようこそ"
+            ]
+        };
+        module.exports = {
+            //route:true
+            index:{
+              "Welcome to Gengo.js": "Gengo.jsへようこそ",
+              "navbar":{
+                "welcome": {
+                //__('navbar.welcome.casual') ||
+                //__('navbar.welcome.casual.translated')
+                  "casual":{
+                  //translated
+                    "translated": "Gengo.jsへようこそ",
+                  }
+                  "something": "...",
+                  //Array
+                  "multiline": [
+                    "Gengo.js",
+                    "へようこそ"
+                  ]
+                },
+                "welcometwo":"Gengo.jsへようこそ"
+              }
+            },
+            //universe
+            gengo:{
+              "Hello": "こんにちは",
+            }
+        };
+
+        //en-US.js
+        module.exports = {
+            //route:true
+            index:{
+              "navbar":{
+                "welcome": {
+                //default
+                  "default": "Welcome to Gengo.js",
+                  "something": "..."
+                },
+                "welcometwo":"Welcome to Gengo.js"
+              },
+              //__("[...].plural") || __("[...]", 2)
+              "You are cool if you use gengojs":{
+                  "plural": "We are cool if you use gengojs"
+              }
+            }
+        };
+    h1#kawari Kawari
+    p!= __("dictionary.heading.kawari")
+    br
+    pre.language-javascript
+      code.
+        //ja.js
+        module.exports = {
+            "Welcome to Gengo.js, %s": "%s, Gengo.jsへようこそ"    
+        };
+    h1#momentjs-and-numeraljs #{__("dictionary.heading.momnum")}
+    p!= __("dictionary.paragraph.momnum")
+    br
+    pre.language-jade
+      code.
+        extends layout
+
+        block content
+          h1= __(title)
+          h2 \#{__("Gengo.jsへようこそ")}
+          h4 \#{__('今日は%sです。', __.moment().format('dddd'))}
+          h4 \#{__('%sを持っていません。', __.numeral(10000).format('$0,0.00'))}
+          h4 \#{__('今日は%sです。', __.moment({locale:'ja'}).format('dddd'))}
+          h4 \#{__('%sを持っていません。', __.numeral({locale:'ja'},10000).format('$0,0.00'))}
+    h1#cookies #{__("dictionary.heading.cookies")}
+    p
+    | #{__("dictionary.paragraph.cookies")}
+    br
+    pre.language-jade
+      code.
+        //index.jade
+        extends layout
+
+        block content
+          h1= __(title)
+          p \#{__("Gengo.jsへようこそ")}
+          button(onclick="locale().set('ja');") Japanese
+          button(onclick="locale().set('en_US');") English
+          button(onclick="locale().reset();") Reset
+          script.
+              var locale = function(){
+                  return{
+                      set: function(locale){
+                          //#{__("dictionary.code.cookies.set")}
+                          document.cookie = "locale=" + locale;
+                          //#{__("dictionary.code.cookies.refresh")}
+                          location.reload();
+                      },
+                      reset: function(){
+                          //#{__("dictionary.code.cookies.reset")}
+                          document.cookie = "locale=";
+                          //#{__("dictionary.code.cookies.refresh")}
+                          location.reload();
+                      }
+                  };
+              };
+    h1#markdown #{__("dictionary.heading.markdown")}
+    p
+    | #{__("dictionary.paragraph.markdown")}
+    br
+    pre.language-jade
+      code.
+        //index.jade
+        extends layout
+
+        block content
+          //#{__("dictionary.code.markdown.caution")}
+          p!= __("Welcome to [Gengo.js](http://gengojs.com)")
+          p!= __("Welcome to [Gengo.js](http://gengojs.com)[blank]")
+          p!= __("Welcome to [Gengo.js](http://gengojs.com)[self]")
+    h1#mustache #{__("dictionary.heading.mustache")}
+    p #{__("dictionary.paragraph.mustache")}
+    br
+    pre.language-jade
+      code.
+        //index.jade
+        extends layout
+
+        block content
+          p \#{__("Welcome to {gengojs}", {gengojs:"Gengo.js"}})}

@@ -1,0 +1,152 @@
+h1#install #{__("Initialize")}
+pre.language-javascript
+  code.
+    /*app.js*/
+
+    // 1. #{__("Get an instance of gengo")}
+    var gengo = require('gengojs');
+
+    // 2. #{__("Configure gengo")}
+    gengo.config({
+        debug: false,
+        localePath: '#{__("The path to your locales")}',
+        default: 'en_US',
+        supported: ['ja','en_US']
+    });
+
+    // 3. #{__("Initialize gengo")}
+    gengo.init(app);
+
+h1#gengo gengo
+h5#input-string
+  strong input (String)
+p #{__("Words or sentences to translate.")}
+h5#arg-string-object-array
+  strong arg (String, Object, Array)
+p #{__("The words to replace with.")}
+hr
+h1#config config
+h5#gengo-string
+  strong gengo (String)
+p
+  | #{__("Changes the global variable of gengo.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      __
+h5#moment-string
+  strong moment (String)
+p
+  | #{__("Changes the global variable of moment.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      moment
+h5#numeral-string
+  strong numeral (String)
+p
+  | #{__("Changes the global variable of moment.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      numeral
+h5#localepath-string
+  strong localePath (String)
+p
+  |#{__("The path to the locale files.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      approot/locales
+h5#debug-bool
+  strong debug (bool)
+p
+  | #{__("Outputs the debugging statements.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      false
+h5#supported-array
+  strong supported (Array)
+p
+  | #{__("The supported locales in your app.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      ['en_US', 'en']
+  br
+  <p>
+  <span class="glyphicon glyphicon-warning-sign">
+  </span>#{__("gengo is strict concerning comparisons. If your default does contain similar languages, then please provide them.")}
+</p>
+h5#default-string
+  strong default (String)
+p
+  | #{__("The default language used in your template. This means you can write in your native language and gengo will translate it.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      'en_US'
+h5#routeaware-bool
+  strong routeAware (bool)
+p
+  | #{__("Organizes your definitions into routes.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      false
+h5#routes-json-like-object
+  strong routes (JSON)
+p
+  | #{__("Sets the routes for your definitions.")}
+  br
+  | #{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      {
+       //universe
+        "*": "gengo",
+       //index
+        "/": "index"
+      }
+h5#universe-bool
+  strong universe (bool)
+p
+  | #{__("Use repetative definitions across routes with routeAware enabled.")}
+  br
+  |#{__("Default is:")}
+  br
+  pre.language-javascript
+    code.
+      false
+hr
+h1#functions functions
+h5#language
+pre.language-javascript
+  code.
+    gengo.language()
+    __.language()
+p #{__("Returns the current language as a string.")}
+h5#locale
+pre.language-javascript
+  code.
+    gengo.locale()
+    __.locale()
+p #{__("Returns the current locale as a string.")}

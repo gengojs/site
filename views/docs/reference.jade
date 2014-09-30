@@ -1,0 +1,209 @@
+h1#gengo gengo
+h5#input-string
+  strong input (String, Object)
+p #{__("reference.paragraph.input")}
+pre.language-javascript
+    code.
+      __("String")
+      __({phrase: "String", locale:"String"})
+      __({phrase: "String", locale:"String", count: "String" || Number})
+br
+h7#input-notation
+ strong #{__("reference.heading.notation")}
+  br
+pre.language-javascript
+  code.
+    //#{__("reference.code.notation.phrase")}
+    __("You are cool!")
+    //#{__("reference.code.notation.bracket")}
+    __("[navbar.home]") //key = 'navbar.home'
+    //#{__("reference.code.notation.brackdot")}
+    __("[You are cool!].plural.something")
+    //#{__("reference.code.notation.dot")}
+    __("navbar.home") //key = 'navbar' subkey = 'home'
+h5#arg-string-object-array
+  strong arg (String, Object, Array, Number)
+p #{__("reference.paragraph.arg")}
+pre.language-javascript
+    code.
+      __(...,"String", "String"...n)
+      __(...,"String", Number)
+      __(...,{sprintf:"String", count: "String" || Number})
+      //mustache
+      __(..., {example:"String", example2: "String"})
+      //mustache mix
+      __(..., {example:"String", sprintf:"String",...n})
+      __(..., [example, example2,...n])
+hr
+h1#config config
+h5#gengo-string
+  strong gengo (String)
+p
+  | #{__("reference.paragraph.gengo")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      global:{
+        gengo:'__'
+      }
+h5#directory-string
+  strong directory (String)
+p
+  |#{__("reference.paragraph.directory")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      approot/locales
+h5#debug-bool
+  strong debug (Boolean, Object)
+p
+  | #{__("reference.paragraph.debug")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      debug: false
+p#debug-example
+  pre.language-javascript
+    code.
+      gengo.config({
+        debug: {levels:['warn', 'error']}
+      });
+
+h5#supported-array
+  strong supported (Array)
+p
+  | #{__("reference.paragraph.supported")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      supported: ['en-US', 'en']
+  br
+  <p>
+  <span class="glyphicon glyphicon-warning-sign">
+  </span>#{__("reference.glyphicon.supported")}
+</p>
+h5#default-string
+  strong default (String)
+p
+  | #{__("reference.paragraph.def")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      default: 'en-US'
+h5#router-bool
+  strong router (Boolean)
+p
+  | #{__("reference.paragraph.router")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      router: false
+  br
+  pre.language-javascript
+    code.
+      '/' ==
+        {
+          "index": ...
+        }
+
+      /******************/
+
+      '/docs' ==
+      {
+        "docs": ...
+      }
+
+      /******************/
+
+      '/docs/v0.2' ==
+      {
+        "docs":
+        {
+          "v0.2":...
+        }
+      }
+h5#file-extension
+  strong extension (string)
+p
+  | #{__("reference.paragraph.extension")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      extension: 'js'
+  br
+  pre.language-javascript
+    code.
+      //.js
+      module.exports = {
+        ...
+      };
+
+      //.json
+      {
+        ...
+      }
+h5#keywords
+  strong keywords (Object)
+p
+  | #{__("reference.paragraph.keywords")}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      keywords: {
+        default: 'default',
+        translated: 'translated',
+        universe: 'gengo',
+        plural: 'plural'
+      }
+h5#cookiename
+  strong cookiename (String)
+p
+  | #{__('reference.paragraph.cookiename')}
+  br
+  | #{__("reference.def")}
+  br
+  pre.language-javascript
+    code.
+      cookiename: 'locale'
+hr
+h1#functions functions
+h5#language
+  strong language
+pre.language-javascript
+  code.
+    gengo.language()
+    __.language()
+p #{__("reference.paragraph.language")}
+h5#setLocale
+  strong setLocale
+pre.language-javascript
+  code.
+    setLocale('ja');
+    setLocale(req, 'ja');
+    req.setLocale('ja');
+p #{__("reference.paragraph.locale.set")}
+
+h5#getLocale
+  strong getLocale
+pre.language-javascript
+  code.
+    getLocale(); // --> ja
+    getLocale(req); // --> ja
+    req.getLocale(); // --> ja
+p #{__("reference.paragraph.locale.get")}

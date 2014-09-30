@@ -1,0 +1,121 @@
+extends layout
+
+block styles
+  link(rel="stylesheet", href="stylesheets/code.css")
+block content
+  .jumbotron
+    .row
+      .col-md-7
+        h1=title
+      .col-md-5
+        form
+          h3= __("Install")
+          pre.language-bash
+            code.
+              sudo npm install gengojs --save #npm
+      .col-md-7
+         p.lead
+         | #{__("An uber basic and simple i18n library for Express 4")}
+         p(style="padding-top: 15px;")
+           a.btn.btn-primary.btn-sm(href="#one") #{__("Learn more")}
+
+  .container
+    hr.featurette-divider
+    .row.featurette
+      .col-md-7
+        h2.featurette-heading#one
+          | #{__("featurette.heading.one")}
+          span.text-muted #{__("featurette.heading.one.textmuted")}
+        p
+          | #{__("featurette.paragraph.one")} <br/> #{__("featurette.paragraph.one.break")}
+          p.text-muted #{__("featurette.paragraph.one.textmuted")}
+      .col-md-5
+        pre.language-javascript
+          code.
+            /*app.js*/
+
+            // 1. #{__("featurette.code.one.get")}
+            var gengo = require('gengojs');
+
+            // 2. #{__("featurette.code.one.config")}
+            gengo.config({
+                debug: false,
+                directory: '#{__("featurette.code.one.config.folder")}',
+                default: 'en-US',
+                supported: ['ja','en-US']
+            });
+
+            // 3. #{__("featurette.code.one.init")}
+            app.use(gengo.init);
+    hr.featurette-divider
+    .row.featurette
+      .col-md-5
+        pre.language-jade
+          code.
+            //#{__("featurette.code.two.simplesyntax")}
+
+            extends layout
+
+            block content
+              h1= __(title)
+              p \#{__("Welcome to Gengo.js")}
+
+              //#{__("featurette.code.liveoutput")}
+              //#{__("featurette.code.two.output")}
+      .col-md-7
+        h2.featurette-heading#two
+          | #{__("featurette.heading.two")}
+          span.text-muted #{__("featurette.heading.two.textmuted")}
+        p.lead
+          | #{__("featurette.paragraph.two")}
+          p.text-muted #{__("featurette.paragraph.two.textmuted")}
+    hr.featurette-divider
+    .row.featurette
+      .col-md-7
+        h2.featurette-heading#three
+          | #{__("featurette.heading.three")}
+          span.text-muted #{__("featurette.heading.three.textmuted")}
+        p.lead
+          | #{__("featurette.paragraph.three")}
+          ul.lead
+              li #{__("featurette.paragraph.three.list.one")}
+              li #{__("featurette.paragraph.three.list.two")}
+      .col-md-5
+        pre.language-javascript
+          code.
+            //ja.js
+
+            //#{__("featurette.code.three.simple")}
+            module.exports = {
+                "Welcome to Gengo.js": "Gengo.jsへようこそ",
+            };
+
+            //#{__("featurette.code.three.router")}
+            module.exports = {
+                index:{
+                    "Welcome to Gengo.js": "Gengo.jsへようこそ",
+                }
+            };
+    hr.featurette-divider
+    .row.featurette
+      .col-md-5
+        pre.language-jade
+          code.
+            extends layout
+
+            block content
+                h4 \#{__('Today is %s.', __.moment().format('dddd'))}
+                h4 \#{__('I don\'t have %s', __.numeral(10000).format('$0,0'))}
+
+                //#{__("featurette.code.liveoutput")}
+                //#{__("featurette.code.four.date", __.moment().format('dddd'))}
+                //#{ __("featurette.code.four.money",__.numeral(10000).format('$0,0'))}
+      .col-md-7
+        h2.featurette-heading#four
+          | #{__("featurette.heading.four")}
+          span.text-muted #{__("featurette.heading.four.textmuted")}
+        p.lead
+          | #{__("featurette.paragraph.four")}
+    hr.featurette-divider
+
+block scripts
