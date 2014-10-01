@@ -68,7 +68,7 @@ h1#dictionary #{__("dictionary.heading.dictionary")}
       code.
         //ja.js
         module.exports = {
-            "Welcome to Gengo.js, %s": "%s, Gengo.jsへようこそ"    
+            "Welcome to Gengo.js, %s": "%s, Gengo.jsへようこそ"
         };
     h1#momentjs-and-numeraljs #{__("dictionary.heading.momnum")}
     p!= __("dictionary.paragraph.momnum")
@@ -139,4 +139,4 @@ h1#dictionary #{__("dictionary.heading.dictionary")}
         extends layout
 
         block content
-          p \#{__("Welcome to {gengojs}", {gengojs:"Gengo.js"}})}
+          p \#{__("Welcome to {{gengojs}}", {gengojs:"Gengo.js"}})}
