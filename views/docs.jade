@@ -6,7 +6,7 @@ block content
     .row.affix-row
       .col-sm-3.col-md-2.affix-sidebar
         .sidebar-nav
-          .navbar.navbar-default(role='navigation' style='padding: 2%;')
+          .navbar.navbar-default(role='navigation' style='width:65%; padding: 1%')
             .navbar-header
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-navbar-collapse')
                 span.icon-bar
@@ -24,11 +24,9 @@ block content
                   #toggle1.collapse(style='height: 0px;')
                     ul.nav.nav-list
                       li
-                        a(href='#gengo') gengo
+                        a(href='#api') API
                       li
-                        a(href='#config') config
-                      li
-                        a(href='#functions') #{__("sidenavbar.functions")}
+                        a(href='#config') Configuration
                 li
                   a.collapsed(href='##', data-toggle='collapse', data-target='#toggle2', data-parent='#sidenav01')
                     span.glyphicon.glyphicon-globe
@@ -62,8 +60,8 @@ block content
             h3
               span.glyphicon.glyphicon-book
               | Gengo.js #{__("container.header.docs")} v0.3
-          include docs/reference
-          hr.featurette-divider
-          include docs/dictionary
+            include docs/reference
+            hr.featurette-divider
+            include docs/dictionary
 block scripts
   script(src="/javascripts/docs.js")

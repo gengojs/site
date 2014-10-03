@@ -1,16 +1,40 @@
-h1#gengo gengo
-h5#input-string
+h1#api API
+p <i>Note that mathematical notations such as <strong>iff</strong>, <strong>x</strong>, <strong>n</strong>, etc, will
+  |be used throughout docs.</i>
+h4#input-string
   strong input (String, Object)
-p #{__("reference.paragraph.input")}
-pre.language-javascript
-    code.
-      __("String")
-      __({phrase: "String", locale:"String"})
-      __({phrase: "String", locale:"String", count: "String" || Number})
-br
+p  <strong>Returns </strong><i>String</i> or <i>undefined</i>
+  br
+p
+  |To translate your phrase, you can simply enter it as a string or in an object.
+  |Gengo will do its best to find the translated definition for the requested locale.
+  |If it does not find it, gengo will return the <i>phrase</i> or it will return <i>undefined</i> if
+  |it's in bracket, bracket-dot, or dot notation. Also, note that if a requested locale is your default locale,
+  |it will not translate but return the phrase iff the phrase notation or the bracket notation with phrase is used.
+  br
+p <strong>Object: </strong><i>phrase, locale, count (String, Number)</i>
+p When using objects, you may override the locale by passing a string value with a locale.
+  |You may also let gengo know that a plural version of the phrase exists by passing a string or a number value.
+p
+.row
+  .col-md-10
+    pre.language-javascript
+        code.
+          //String
+          __("String")
+          //Object
+          __({phrase: "String", locale:"String"})
+          __({phrase: "String", locale:"String", count: "String" || Number})
+    br
 h7#input-notation
  strong #{__("reference.heading.notation")}
   br
+p The accepted notations are <i>phrases</i>, <i>brackets</i>, <i>bracket-phrase</i> <i>bracket-dots</i>, and <i>dots</i>.
+  |Brackets, in itself, accepts <i>phrases</i>, and <i>dots</i> (bracket-dot). There may be cases where a key in your definition
+  |is a phrase and that phrase has a subkey such as <i>plural</i> and/or <i>x</i> (an arbitrary subkey). You can also have
+  |a dotted key such as <i>navbar.home</i> that may or may not contain subkeys. Unlike the dotted key, you may use the dot
+  |notation to access keys and subkeys. Because gengo allows you to access the definitions in plethora of ways, the nature
+  |of setting up your dictionary will be explained in <a href ="#dictionary">dictionary</a>.
 pre.language-javascript
   code.
     //#{__("reference.code.notation.phrase")}
@@ -21,23 +45,67 @@ pre.language-javascript
     __("[You are cool!].plural.something")
     //#{__("reference.code.notation.dot")}
     __("navbar.home") //key = 'navbar' subkey = 'home'
-h5#arg-string-object-array
+h4#arg-string-object-array
   strong arg (String, Object, Array, Number)
-p #{__("reference.paragraph.arg")}
+p When <i>n</i> = 1, gengo will assume that you will provide either a <i>locale</i> (String), <i>sprintf</i>* (String, Number, Array),
+  |<i>count</i> (String, Number), or an <i>Object</i>** that may or may not contain <i>sprintf,
+  |</i><i>mustache</i>***, <i>count,</i> and <i>locale</i>. If <i>n</i> > 1, gengo will consider**** the arguments as <i>sprintf</i>.
+
+p
+  br
+  * If your phrase contains <i>%</i>, gengo will consider it as sprintf syntax and will try to do its conversion.
+  br
+  ** The keywords used in Object notation are <i>sprintf</i>, <i>locale</i>, and <i>count</i>.
+  |Anything else will be considered mustache syntax.
+  br
+  *** If your phrase contains <i>{{...}}</i>, gengo will consider it as a mustache syntax and will try to render it.
+  **** It's possible to have an Object along with <i>n</i> number of strings and/or numbers, but I would recommend using the
+  |<i>sprintf</i> key with an array.
+
 pre.language-javascript
     code.
-      __(...,"String", "String"...n)
-      __(...,"String", Number)
-      __(...,{sprintf:"String", count: "String" || Number})
-      //mustache
-      __(..., {example:"String", example2: "String"})
-      //mustache mix
-      __(..., {example:"String", sprintf:"String",...n})
-      __(..., [example, example2,...n])
+
+      /*n = 1*/
+      __(..., "ja") //locale
+      __(..., "World") || __(..., [...]) //sprintf
+      __(..., "2") || __(..., 2) //count and/or sprintf
+      //As mentioned earlier, it is not neccessary to specify all of the following,
+      //but just what you want to do. Also, 'm' refers to the number of mustache keys for m > 1
+      __(.., {sprintf: ..., locale: 'ja', count: 2, mustache_example: "John Doe",...m}) //Object
+
+      /*n > 1*/
+      __(..., "Hello", 2,"World!", 3,...n) //sprintf
+
+h1#functions functions
+h5#language
+  strong language
+pre.language-javascript
+  code.
+    gengo.language()
+    __.language()
+p #{__("reference.paragraph.language")}
+h5#setLocale
+  strong setLocale
+pre.language-javascript
+  code.
+    setLocale('ja');
+    setLocale(req, 'ja');
+    req.setLocale('ja');
+p #{__("reference.paragraph.locale.set")}
+
+h5#getLocale
+  strong getLocale
+pre.language-javascript
+  code.
+    getLocale(); //--> ja
+    getLocale(req); //--> ja
+    req.getLocale(); //--> ja
+p #{__("reference.paragraph.locale.get")}
+
 hr
-h1#config config
+h1#config Configuration
 h5#gengo-string
-  strong gengo (String)
+  strong global (Object)
 p
   | #{__("reference.paragraph.gengo")}
   br
@@ -48,6 +116,12 @@ p
       global:{
         gengo:'__'
       }
+
+      //example
+      gengo.config({
+        global:{gengo:'__g'} // --> __g(...)
+      });
+
 h5#directory-string
   strong directory (String)
 p
@@ -58,22 +132,36 @@ p
   pre.language-javascript
     code.
       approot/locales
+
+      //example
+      gengo.config({
+        directory: '/my-folder/locales/'
+      });
+      //approot
+      //  |
+      //  ---my-folder
+      //       |
+      //       --- locales
 h5#debug-bool
-  strong debug (Boolean, Object)
+  strong debug (Boolean, Array)
 p
   | #{__("reference.paragraph.debug")}
+  | Types of warnings: <i>info</i>, <i>warn</i>, <i>error</i>, <i>debug</i>, and <i>data</i>
   br
   | #{__("reference.def")}
   br
   pre.language-javascript
     code.
       debug: false
-p#debug-example
-  pre.language-javascript
-    code.
+
+      //example
       gengo.config({
-        debug: {levels:['warn', 'error']}
+        debug: ['warn', 'error']
       });
+
+      /*developer usage
+      var debug = require('./modules/utils.js').debug;
+      debug(String, Object, Array, Number).info(String (optional))*/
 
 h5#supported-array
   strong supported (Array)
@@ -110,22 +198,25 @@ p
   pre.language-javascript
     code.
       router: false
-  br
-  pre.language-javascript
-    code.
+
+      //example
+      gengo.config(); //-->
+      '/' || '/docs' ==
+      {
+        ...
+      }
+
+      gengo.config({router: true}); //-->
+      //router: true
       '/' ==
         {
           "index": ...
         }
 
-      /******************/
-
       '/docs' ==
       {
         "docs": ...
       }
-
-      /******************/
 
       '/docs/v0.2' ==
       {
@@ -144,14 +235,15 @@ p
   pre.language-javascript
     code.
       extension: 'js'
-  br
-  pre.language-javascript
-    code.
+
+      //example
+      gengo.config(); //-->
       //.js
       module.exports = {
         ...
       };
 
+      gengo.config({extension:'json'}); //-->
       //.json
       {
         ...
@@ -160,6 +252,12 @@ h5#keywords
   strong keywords (Object)
 p
   | #{__("reference.paragraph.keywords")}
+  |Gengo will automatically look for these keywords, but they can be specified with dot notation.
+  ul
+    li <i>default</i> is used when you use bracket-dot or dot notation in your default language's dictionary.
+    li <i>translated</i> is used when you use bracket-dot or dot notation in your foreign language's dictionary.
+    li <i>plural</i> is used for plurality.
+    li <i>universe</i> is used when you want certain definitions to be on all routes when router is enabled.
   br
   | #{__("reference.def")}
   br
@@ -171,6 +269,73 @@ p
         universe: 'gengo',
         plural: 'plural'
       }
+
+      //example
+      gengo.config(); //-->
+
+      //en-US.js
+      {
+        "something":{
+            "default": ...,
+            "plural": {
+              "default": ...
+            }
+        }
+      }
+
+      //ja.js
+      {
+        "something":{
+            "translated": ...,
+            "plural": {
+              "translated": ...
+            }
+        }
+      }
+      //router: true
+      {
+        "index": ...,
+        "gengo": {
+          ....
+        }
+      }
+
+
+      gengo.config({
+      keywords: {
+        default: 'd',
+        translated: 't',
+        universe: 'g',
+        plural: 'p'
+      }}); //-->
+
+      //en-US.js
+      {
+        "something":{
+            "d": ...,
+            "p": {
+              "d": ...
+            }
+        }
+      }
+
+      //ja.js
+      {
+        "something":{
+            "t": ...,
+            "p": {
+              "t": ...
+            }
+        }
+      }
+      //router: true
+      {
+        "index": ...,
+        "g": {
+          ....
+        }
+      }
+
 h5#cookie
   strong cookie (String)
 p
@@ -181,29 +346,8 @@ p
   pre.language-javascript
     code.
       cookie: 'locale'
-hr
-h1#functions functions
-h5#language
-  strong language
-pre.language-javascript
-  code.
-    gengo.language()
-    __.language()
-p #{__("reference.paragraph.language")}
-h5#setLocale
-  strong setLocale
-pre.language-javascript
-  code.
-    setLocale('ja');
-    setLocale(req, 'ja');
-    req.setLocale('ja');
-p #{__("reference.paragraph.locale.set")}
 
-h5#getLocale
-  strong getLocale
-pre.language-javascript
-  code.
-    getLocale(); // --> ja
-    getLocale(req); // --> ja
-    req.getLocale(); // --> ja
-p #{__("reference.paragraph.locale.get")}
+      //example
+      gengo.config({
+        cookie: 'yourcookiename'
+      });
