@@ -83,14 +83,14 @@ module.exports = {
       "docs": "Docs",
       "english": "English",
       "search": "Search Language",
-      "github": "Fork on Github",
+      "github": "Fork on Github"
     },
     "footer": {
       "twitter": [
         "Gengo.js is an [MIT](https://github.com/iwatakeshi/gengojs/blob/master/LICENSE)[blank] licensed ",
         "open source project by [@iwatakeshi](@iwatakeshi)[blank]."
       ].join('\n'),
-      "backtotop": "Back to top",
+      "backtotop": "Back to top"
     }
   },
   "docs": {
