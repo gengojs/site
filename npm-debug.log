@@ -1,158 +1,85 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node',
-1 verbose cli   '/usr/bin/npm',
-1 verbose cli   'install',
-1 verbose cli   '-g',
-1 verbose cli   'npm-check-updates' ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'updates' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.32
 4 verbose node symlink /usr/bin/node
-5 verbose cache add [ 'npm-check-updates', null ]
-6 verbose cache add name=undefined spec="npm-check-updates" args=["npm-check-updates",null]
-7 verbose parsed url { protocol: null,
-7 verbose parsed url   slashes: null,
-7 verbose parsed url   auth: null,
-7 verbose parsed url   host: null,
-7 verbose parsed url   port: null,
-7 verbose parsed url   hostname: null,
-7 verbose parsed url   hash: null,
-7 verbose parsed url   search: null,
-7 verbose parsed url   query: null,
-7 verbose parsed url   pathname: 'npm-check-updates',
-7 verbose parsed url   path: 'npm-check-updates',
-7 verbose parsed url   href: 'npm-check-updates' }
-8 silly lockFile 1ae65091-npm-check-updates npm-check-updates
-9 verbose lock npm-check-updates /home/takeshi/.npm/1ae65091-npm-check-updates.lock
-10 silly lockFile 1ae65091-npm-check-updates npm-check-updates
-11 silly lockFile 1ae65091-npm-check-updates npm-check-updates
-12 verbose addNamed [ 'npm-check-updates', '' ]
-13 verbose addNamed [ null, '*' ]
-14 silly lockFile 2824db21-npm-check-updates npm-check-updates@
-15 verbose lock npm-check-updates@ /home/takeshi/.npm/2824db21-npm-check-updates.lock
-16 silly addNameRange { name: 'npm-check-updates', range: '*', hasData: false }
-17 verbose request where is /npm-check-updates
-18 verbose request registry https://registry.npmjs.org/
-19 verbose request id e4a60e1ae4404869
-20 verbose url raw /npm-check-updates
-21 verbose url resolving [ 'https://registry.npmjs.org/', './npm-check-updates' ]
-22 verbose url resolved https://registry.npmjs.org/npm-check-updates
-23 verbose request where is https://registry.npmjs.org/npm-check-updates
-24 info trying registry request attempt 1 at 17:37:43
-25 http GET https://registry.npmjs.org/npm-check-updates
-26 http 200 https://registry.npmjs.org/npm-check-updates
-27 silly registry.get cb [ 200,
-27 silly registry.get   { date: 'Tue, 30 Sep 2014 23:37:44 GMT',
-27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
-27 silly registry.get     etag: '"BCPZK8NRA2K49ED3DZJKB4GZF"',
-27 silly registry.get     'content-type': 'application/json',
-27 silly registry.get     'cache-control': 'max-age=60',
-27 silly registry.get     'content-length': '10670',
-27 silly registry.get     'accept-ranges': 'bytes',
-27 silly registry.get     via: '1.1 varnish',
-27 silly registry.get     age: '6725',
-27 silly registry.get     'x-served-by': 'cache-ord1729-ORD',
-27 silly registry.get     'x-cache': 'MISS',
-27 silly registry.get     'x-cache-hits': '0',
-27 silly registry.get     'x-timer': 'S1412120263.962426,VS0,VE131',
-27 silly registry.get     vary: 'Accept',
-27 silly registry.get     'keep-alive': 'timeout=10, max=50',
-27 silly registry.get     connection: 'Keep-Alive' } ]
-28 silly addNameRange number 2 { name: 'npm-check-updates', range: '*', hasData: true }
-29 silly addNameRange versions [ 'npm-check-updates',
-29 silly addNameRange   [ '1.0.0', '1.0.1', '1.1.0', '1.1.1', '1.2.0' ] ]
-30 verbose addNamed [ 'npm-check-updates', '1.2.0' ]
-31 verbose addNamed [ '1.2.0', '1.2.0' ]
-32 silly lockFile 4ebd2508-npm-check-updates-1-2-0 npm-check-updates@1.2.0
-33 verbose lock npm-check-updates@1.2.0 /home/takeshi/.npm/4ebd2508-npm-check-updates-1-2-0.lock
-34 silly lockFile c7df030a-ates-npm-check-updates-1-2-0-tgz https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz
-35 verbose lock https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz /home/takeshi/.npm/c7df030a-ates-npm-check-updates-1-2-0-tgz.lock
-36 verbose addRemoteTarball [ 'https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz',
-36 verbose addRemoteTarball   '9e055cdc4a6fad8043bb95adf23eb74f5718c3ec' ]
-37 info retry fetch attempt 1 at 17:37:44
-38 verbose fetch to= /tmp/npm-24976-aHoFpx5r/registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz
-39 http GET https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz
-40 http 200 https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz
-41 silly lockFile c7df030a-ates-npm-check-updates-1-2-0-tgz https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz
-42 silly lockFile c7df030a-ates-npm-check-updates-1-2-0-tgz https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz
-43 silly lockFile 4ebd2508-npm-check-updates-1-2-0 npm-check-updates@1.2.0
-44 silly lockFile 4ebd2508-npm-check-updates-1-2-0 npm-check-updates@1.2.0
-45 silly lockFile 2824db21-npm-check-updates npm-check-updates@
-46 silly lockFile 2824db21-npm-check-updates npm-check-updates@
-47 silly resolved [ { name: 'npm-check-updates',
-47 silly resolved     version: '1.2.0',
-47 silly resolved     author: { name: 'Tomas Junnonen', email: 'tomas1@gmail.com' },
-47 silly resolved     description: 'Find newer versions of dependencies than what your package.json allows',
-47 silly resolved     keywords:
-47 silly resolved      [ 'npm',
-47 silly resolved        'check',
-47 silly resolved        'find',
-47 silly resolved        'discover',
-47 silly resolved        'updates',
-47 silly resolved        'upgrades',
-47 silly resolved        'dependencies',
-47 silly resolved        'package.json',
-47 silly resolved        'updater',
-47 silly resolved        'version',
-47 silly resolved        'management' ],
-47 silly resolved     dependencies:
-47 silly resolved      { npm: '1.3.x',
-47 silly resolved        commander: '2.0.x',
-47 silly resolved        async: '0.2.x',
-47 silly resolved        'read-package-json': '1.1.x',
-47 silly resolved        semver: '2.2.x' },
-47 silly resolved     main: './lib/npm-check-updates',
-47 silly resolved     bin: { 'npm-check-updates': './bin/npm-check-updates' },
-47 silly resolved     repository:
-47 silly resolved      { type: 'git',
-47 silly resolved        url: 'https://github.com/tjunnone/npm-check-updates.git' },
-47 silly resolved     homepage: 'https://github.com/tjunnone/npm-check-updates',
-47 silly resolved     bugs: { url: 'https://github.com/tjunnone/npm-check-updates/issues' },
-47 silly resolved     _id: 'npm-check-updates@1.2.0',
-47 silly resolved     dist:
-47 silly resolved      { shasum: '9e055cdc4a6fad8043bb95adf23eb74f5718c3ec',
-47 silly resolved        tarball: 'http://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz' },
-47 silly resolved     _from: 'npm-check-updates@',
-47 silly resolved     _npmVersion: '1.3.11',
-47 silly resolved     _npmUser: { name: 'tjunnone', email: 'tomas1@gmail.com' },
-47 silly resolved     maintainers: [ [Object] ],
-47 silly resolved     directories: {},
-47 silly resolved     _shasum: '9e055cdc4a6fad8043bb95adf23eb74f5718c3ec',
-47 silly resolved     _resolved: 'https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-1.2.0.tgz' } ]
-48 info install npm-check-updates@1.2.0 into /usr/lib
-49 info installOne npm-check-updates@1.2.0
-50 verbose lib/node_modules/npm-check-updates unbuild
-51 verbose tar unpack /home/takeshi/.npm/npm-check-updates/1.2.0/package.tgz
-52 silly lockFile 6194c71f-b-node-modules-npm-check-updates tar:///usr/lib/node_modules/npm-check-updates
-53 verbose lock tar:///usr/lib/node_modules/npm-check-updates /home/takeshi/.npm/6194c71f-b-node-modules-npm-check-updates.lock
-54 silly lockFile 59e26205--check-updates-1-2-0-package-tgz tar:///home/takeshi/.npm/npm-check-updates/1.2.0/package.tgz
-55 verbose lock tar:///home/takeshi/.npm/npm-check-updates/1.2.0/package.tgz /home/takeshi/.npm/59e26205--check-updates-1-2-0-package-tgz.lock
-56 silly gunzTarPerm modes [ '775', '664' ]
-57 error Error: EACCES, mkdir '/usr/lib/node_modules/npm-check-updates'
-57 error  { [Error: EACCES, mkdir '/usr/lib/node_modules/npm-check-updates']
-57 error   errno: 3,
-57 error   code: 'EACCES',
-57 error   path: '/usr/lib/node_modules/npm-check-updates',
-57 error   fstream_type: 'Directory',
-57 error   fstream_path: '/usr/lib/node_modules/npm-check-updates',
-57 error   fstream_class: 'DirWriter',
-57 error   fstream_stack:
-57 error    [ '/usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
-57 error      '/usr/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
-57 error      'Object.oncomplete (fs.js:107:15)' ] }
-58 error Please try running this command again as root/Administrator.
-59 error System Linux 3.2.0-69-generic
-60 error command "/usr/bin/node" "/usr/bin/npm" "install" "-g" "npm-check-updates"
-61 error cwd /home/takeshi/Documents/Heroku/gengojs
-62 error node -v v0.10.32
-63 error npm -v 1.4.28
-64 error path /usr/lib/node_modules/npm-check-updates
-65 error fstream_path /usr/lib/node_modules/npm-check-updates
-66 error fstream_type Directory
-67 error fstream_class DirWriter
-68 error code EACCES
-69 error errno 3
-70 error stack Error: EACCES, mkdir '/usr/lib/node_modules/npm-check-updates'
-71 error fstream_stack /usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
-71 error fstream_stack /usr/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
-71 error fstream_stack Object.oncomplete (fs.js:107:15)
-72 verbose exit [ 3, true ]
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'updates', null ]
+7 verbose cache add name=undefined spec="updates" args=["updates",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'updates',
+8 verbose parsed url   path: 'updates',
+8 verbose parsed url   href: 'updates' }
+9 silly lockFile f0f97766-updates updates
+10 verbose lock updates /home/takeshi/.npm/f0f97766-updates.lock
+11 silly lockFile f0f97766-updates updates
+12 silly lockFile f0f97766-updates updates
+13 verbose addNamed [ 'updates', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile a5543a55-updates updates@
+16 verbose lock updates@ /home/takeshi/.npm/a5543a55-updates.lock
+17 silly addNameRange { name: 'updates', range: '*', hasData: false }
+18 verbose request where is /updates
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id d0c6ed817691a638
+21 verbose url raw /updates
+22 verbose url resolving [ 'https://registry.npmjs.org/', './updates' ]
+23 verbose url resolved https://registry.npmjs.org/updates
+24 verbose request where is https://registry.npmjs.org/updates
+25 info trying registry request attempt 1 at 23:54:37
+26 http GET https://registry.npmjs.org/updates
+27 http 404 https://registry.npmjs.org/updates
+28 verbose headers { date: 'Sat, 04 Oct 2014 05:54:37 GMT',
+28 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 verbose headers   'content-type': 'application/json',
+28 verbose headers   'cache-control': 'max-age=0',
+28 verbose headers   'content-length': '52',
+28 verbose headers   'accept-ranges': 'bytes',
+28 verbose headers   via: '1.1 varnish',
+28 verbose headers   age: '0',
+28 verbose headers   'x-served-by': 'cache-dfw1834-DFW',
+28 verbose headers   'x-cache': 'MISS',
+28 verbose headers   'x-cache-hits': '0',
+28 verbose headers   'x-timer': 'S1412402077.516488,VS0,VE257',
+28 verbose headers   'keep-alive': 'timeout=10, max=50',
+28 verbose headers   connection: 'Keep-Alive' }
+29 silly registry.get cb [ 404,
+29 silly registry.get   { date: 'Sat, 04 Oct 2014 05:54:37 GMT',
+29 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=0',
+29 silly registry.get     'content-length': '52',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '0',
+29 silly registry.get     'x-served-by': 'cache-dfw1834-DFW',
+29 silly registry.get     'x-cache': 'MISS',
+29 silly registry.get     'x-cache-hits': '0',
+29 silly registry.get     'x-timer': 'S1412402077.516488,VS0,VE257',
+29 silly registry.get     'keep-alive': 'timeout=10, max=50',
+29 silly registry.get     connection: 'Keep-Alive' } ]
+30 silly lockFile a5543a55-updates updates@
+31 silly lockFile a5543a55-updates updates@
+32 error 404 404 Not Found: updates
+32 error 404
+32 error 404 'updates' is not in the npm registry.
+32 error 404 You should bug the author to publish it
+32 error 404 It was specified as a dependency of 'gengo'
+32 error 404
+32 error 404 Note that you can also install from a
+32 error 404 tarball, folder, or http url, or git url.
+33 error System Linux 3.2.0-69-generic
+34 error command "/usr/bin/node" "/usr/bin/npm" "install" "updates"
+35 error cwd /home/takeshi/Documents/GitHub/gengojs-site
+36 error node -v v0.10.32
+37 error npm -v 1.4.28
+38 error code E404
+39 verbose exit [ 1, true ]

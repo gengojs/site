@@ -186,8 +186,16 @@ pre.language-jade
               };
           };
 h1#markdown #{__("dictionary.heading.markdown")}
-p
-| #{__("dictionary.paragraph.markdown")}
+p!= __("dictionary.paragraph.markdown")
+p For links the following are supported:
+ul
+  li _blank
+  li _self
+  li _parent
+  li _top
+  li
+    i framename
+
 br
 pre.language-jade
   code.
@@ -196,9 +204,36 @@ pre.language-jade
 
     block content
       //#{__("dictionary.code.markdown.caution")}
+      /*links*/
+
+      //standard links
       p!= __("Welcome to [Gengo.js](http://gengojs.com)")
       p!= __("Welcome to [Gengo.js](http://gengojs.com)[blank]")
       p!= __("Welcome to [Gengo.js](http://gengojs.com)[self]")
+
+      //twitter
+      p!= __("Follow me @[iwatakeshi](@iwatakeshi)")
+      p!= __("Follow me [@iwatakeshi](@iwatakeshi)[blank]")
+      p!= __("Follow me [iwatakeshi](@iwatakeshi)[self]")
+
+      //bookmark
+      p!= __("[text](#attribute-to-somewhere)")
+
+      /*Formatting*/
+
+      //bold
+      p!= __("Welcome to *Gengo.js*")
+      p!= __("Welcome to _Gengo.js_")
+
+      //italics
+      p!= __("Welcome to **Gengo.js**")
+      p!= __("Welcome to __Gengo.js__")
+
+      //code
+      p!= __("This is `code`");
+
+      //strike
+      p!= __("This is a ~~strike~~")
 h1#mustache #{__("dictionary.heading.mustache")}
 p #{__("dictionary.paragraph.mustache")}
 br

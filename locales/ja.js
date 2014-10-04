@@ -92,7 +92,7 @@ module.exports = {
     },
     "footer": {
       "twitter": [
-        "Gengo.jsは[@iwatakeshi](https://twitter.com/iwatakeshi)による",
+        "Gengo.jsは[@iwatakeshi](@iwatakeshi)による",
         "[MIT](https://github.com/iwatakeshi/gengojs/blob/master/LICENSE)ライセンスのオーぺんソースプロジェクトです。"
       ].join('\n'),
       "backtotop": "トップへ戻る",

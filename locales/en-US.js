@@ -88,7 +88,7 @@ module.exports = {
     "footer": {
       "twitter": [
         "Gengo.js is an [MIT](https://github.com/iwatakeshi/gengojs/blob/master/LICENSE)[blank] licensed ",
-        "open source project by [@iwatakeshi](https://twitter.com/iwatakeshi)[blank]."
+        "open source project by [@iwatakeshi](@iwatakeshi)[blank]."
       ].join('\n'),
       "backtotop": "Back to top",
     }
@@ -170,7 +170,7 @@ module.exports = {
           "you can use it without worrying about changing its locale and language. "
         ].join('\n'),
         "cookies": "At the moment, the only way to change a language with a browser is by cookies. But, the setup is pretty easy.",
-        "markdown": "With gengo, you can insert Markdown and translate it.",
+        "markdown": "With gengo, you can insert *custom* ~~**Markdown**~~ and [translate](#dictionary) it.",
         "mustache": "gengo now supports mustache syntax. This means you can insert phrases using objects."
       },
       "code": {
