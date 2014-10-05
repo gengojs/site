@@ -2239,3 +2239,6 @@
 {"name":"newrelic","hostname":"lenovo","pid":3392,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-10-04T08:03:24.381Z","v":0}
 {"name":"newrelic","hostname":"lenovo","pid":3392,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/757864/applications/3762079","time":"2014-10-04T08:03:25.986Z","v":0}
 {"name":"newrelic","hostname":"lenovo","pid":3392,"component":"collector_api","level":30,"msg":"Connected to collector-148.newrelic.com:443 with agent run ID 1517061972.","time":"2014-10-04T08:03:25.988Z","v":0}
+{"name":"newrelic","hostname":"lenovo","pid":8203,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-10-05T00:30:57.814Z","v":0}
+{"name":"newrelic","hostname":"lenovo","pid":8203,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/757864/applications/3762079","time":"2014-10-05T00:30:59.551Z","v":0}
+{"name":"newrelic","hostname":"lenovo","pid":8203,"component":"collector_api","level":30,"msg":"Connected to collector-148.newrelic.com:443 with agent run ID 1518469268.","time":"2014-10-05T00:30:59.553Z","v":0}
