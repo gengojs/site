@@ -10,4 +10,4 @@ This is the official repo for [Gengo.js](http://www.gengojs.com) site. If you wo
     * Yeti from bootswatch
 
 * If you want to add more languages:
-    * The locale to look at is locales under approot/locales. Just translate the en-US.js file.
+    * The locale to look at is 'en-US.js' under approot/locales. Just translate the file.
