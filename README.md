@@ -5,4 +5,9 @@ Gengo.js
 
 This is the official repo for [Gengo.js](http://www.gengojs.com) site. If you would like to improve this site in a way, please go ahead and fork it away!
 
-I do plan to add tests along the way, but I am not a guru with testings so feel free to suggest the most optimal way to test the languages and this site.
+* If you want to improve the design:
+    * This site uses jade
+    * Yeti from bootswatch
+
+* If you want to add more languages:
+    * The locale to look at is locales under approot/locales. Just translate the en-US.js file.
