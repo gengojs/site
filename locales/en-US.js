@@ -99,7 +99,7 @@ module.exports = {
       "Docs": "ドクス",
       "Menu": "メニュー",
       "Initialize": "イニシャライズ",
-      "gengo": 　"ゲンゴ",
+      "gengo": 　 "ゲンゴ",
       "Config": "コンフィグ",
       "Reference": "リファレンス",
       "Functions": "ファンクションズ",
@@ -187,7 +187,7 @@ module.exports = {
         "arg": {
           "default": [
             "When **n** = 1, gengo will assume that you will provide either a **locale** (String), **sprintf** ^[1] (String, Number, Array),",
-            "**count** (String, Number), or an **Object** ^[2] may or may not contain **sprintf**,",
+            "**count** (String, Number), or an **Object** ^[2] that may or may not contain **sprintf**,",
             "**mustache** ^[3], **count**, and **locale**. If **n** > 1, gengo will consider ^[4] the arguments as sprintf."
           ],
           "footnote": {
@@ -264,6 +264,7 @@ module.exports = {
           "default": [
             "While the setup is uber simple, there are a couple of ways to setup your dictionary. Keep in mind",
             "that gengo uses the web brower's **Accept-Language** header and looks up for the dictionary by the requested locale.",
+            "Also note that .json and .js file supported file extension.",
             "When you are translating your default langauge, it is optional to have a dictionary",
             "for the default iff you are using phrase notation (including bracket-phrase) for the entire site since gengo will",
             "just return the original phrase when the requested locale is the default language."
