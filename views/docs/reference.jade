@@ -109,7 +109,7 @@ p
       });
 
 h5#directory-string
-  strong directory (String)
+  strong directory (String, Object)
 p
   |#{__("reference.paragraph.directory")}
   br
@@ -128,6 +128,14 @@ p
       //  ---my-folder
       //       |
       //       --- locales
+
+      example2
+        gengo.config({
+            directory: {
+              path: __dirname + '/my-folder/locales/'
+            }
+          })
+
 h5#debug-bool
   strong debug (Boolean, Array)
 p
