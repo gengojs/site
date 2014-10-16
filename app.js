@@ -25,7 +25,8 @@ app.locals.basedir = __dirname + '/views'
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'public')));
 gengo.config({
-  debug: ['warn', 'error'],
+  debug: ['warn', 'error','info'],
+  directory: {path: __dirname + require('path').normalize('/locales/')},
   default: 'en-US',
   supported: ['en-US', 'ja'],
   router: true
@@ -33,7 +34,6 @@ gengo.config({
 console.log(gengo.version);
 app.use(gengo.init);
 app.use('/', routes);
-app.use('/users', users);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
