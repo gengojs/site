@@ -5,3 +5,6 @@ Really not 0.0.1 but we will call it the initial since the docs have been transl
 
 **0.0.2**
 Updated site for gengo v0.3
+
+**0.0.3**
+Revamped site.

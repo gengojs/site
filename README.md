@@ -7,7 +7,7 @@ This is the official repo for [Gengo.js](http://www.gengojs.com) site. If you wo
 
 * If you want to improve the design:
     * This site uses jade
-    * Yeti from bootswatch
+    * Simplex from bootswatch
 
 * If you want to add more languages:
     * The locale to look at is 'en-US.js' under approot/locales. Just translate the file.

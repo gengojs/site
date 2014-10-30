@@ -1,0 +1,35 @@
+section
+  .content
+    h1#installation Installation
+    p
+    |gengo.js has been tested in Windows and Linux and works best with Express 4 and Sails.js.
+    |Once installed, gengo.js also includes two sample Sails.js apps that you can try.
+    hr
+    pre.language-bash
+      code.
+         #npm install
+         sudo npm install gengojs --save
+
+         #try a Sails.js app
+         cd node_modules/gengojs/sails/ejs/ && sudo npm install
+         #or
+         cd node_modules/gengojs/sails/jade && sudo npm install
+         #start it up!
+         npm start #or 'sails lift' if Sails.js is installed
+    hr
+    h2 Initialize
+    p
+    |You can simply initialize gengo.js by requiring and configuring it. See Configuration.
+    hr
+    pre.language-javascript
+      code.
+        var gengo = require('gengojs');
+
+        gengo.config({
+            directory:__dirname + '/config/locales',
+            default: 'en-us',
+            supported: ['ja'],
+            router: true
+          });
+
+        app.use(gengo.init);

@@ -1,0 +1,237 @@
+section
+  .content
+    h1#api API
+    p
+    |gengo is a function that accepts from 1 to n arguments.
+    |If the definition of your phrase is found, it will return either a string or undefined.
+    |By default, it uses <code>__</code> but can be changed. See Configuration.
+    h2 Input
+    p
+    |Input accepts a String and an Object. The String accepts a phrase and the Object accepts a phrase, locale, and/or count.
+    |See table below.
+    hr
+    table.table.table-hover
+      thead
+        tr
+          th Data Type
+          th Option
+          th Description
+          th Example
+      tbody
+        tr
+          td String
+          td phrase
+          td The phrase to look for in the requested locale.
+          td
+            pre.language-javascript
+              code.
+                __("phrase");
+        tr
+          td Object
+          td phrase,
+            br
+            |locale,
+            br
+            | count
+          td
+            |The phrase to look for in the requested locale.
+            br
+            |The locale to override.
+            br
+            |The plurality of the phrase.
+          td
+            pre.language-javascript
+              code.
+                __({phrase:/*String, Number, Array*/});
+                __({locale:/*String*/});
+                __({count:/*String or Number*/});
+    .note.panel.panel-info
+      .panel-heading Note
+      .panel-body
+        p
+        |gengo.js uses a simple 2 > 1 rule for plurality.
+    h3 Notation
+    p
+    |When you pass a phrase, there are three notations that can be
+    |used to tell gengo how to look up your definitions. See Dictionary for setup.
+    hr
+    table.table.table-hover
+      thead
+        tr
+          th Notation
+          th Description
+          th Example
+      tbody
+        tr
+          td Phrase
+          td Searches for the definition directly, assuming there are no sub-keys for the phrase in your dictionary.
+          td
+            pre.language-javascript
+              code.
+                //phrase
+                __("Hello World");
+        tr
+          td Brackets
+          td Searches for the definition assuming a phrase may contain a sub-key or a key that is dotted and may also contain a sub-key.
+          td
+            pre.language-javascript
+              code.
+                //phrase
+                __("[Hello World]");
+                //phrase with subkey
+                __("[Hello World].subkey");
+                //dotted key
+                __("navbar.home");
+                //dotted key with subkey
+                __("[navbar.home].subkey");
+        tr
+          td Dot
+          td Searches for the definition by parsing the dictionary object in a dotted way.
+          td
+            pre.language-javascript
+              code.
+                //dotted parsing
+                __("navbar.home.subkey");
+    hr
+    h2 Arg
+    p
+    | There are different types of data that arg can accept and will interpret based on the data. See table below.
+    hr
+    table.table.table-hover
+      thead
+        tr
+          th Data Type
+          th Description
+          th Example
+      tbody
+        tr
+          td String
+          td gengo will interpret a String as sprintf, locale, or count.
+          td
+            pre.language-javascript
+              code.
+                //sprintf
+                __("...%s...","sprintf");
+                //sprinf with n args
+                __("...%s...%s", "sprintf", "sprintf-n");
+                //locale
+                __("...", "en-US");
+                //count
+                __("...", "2");
+                //count with sprintf
+                __("...%d...");
+        tr
+          td Array
+          td gengo will interpret an Array as sprintf.
+          td
+            pre.language-javascript
+              code.
+                //sprintf
+                __("...%s...%s", ["sprintf", "sprintf-n"])
+        tr
+          td Object
+          td gengo will interpret an Object as sprintf, locale, count, and/or Mustache.js.
+          td
+            pre.language-javascript
+              code.
+                //sprintf
+                __("...",{sprintf:/*String, Number, Array*/});
+                //locale
+                __("...",{locale: /*String*/});
+                //count
+                __("...",{count:/*String or Number*/});
+                //mustache
+                __("...{{a}}...",{a:"mustache", b:"mustache-2", c: "mustache-n"});
+        tr
+          td Number
+          td gengo will interpret a Number as count.
+          td
+            pre.language-javascript
+              code.
+                //count
+                __("...", 2)
+                //count with sprintf
+                __("...%d...", 2)
+    h2 Methods
+    table.table.table-hover
+      thead
+        tr
+          th Method
+          th Description
+          th Example
+      tbody
+        tr
+          td
+            pre.language-javascript
+              code.
+                language()
+          td Returns the current language.
+          td
+            pre.language-javascript
+              code.
+                __.language();
+        tr
+          td
+            pre.language-javascript
+              code.
+                setLocale()
+          td Sets the locale.
+          td
+            pre.language-javascript
+              code.
+                __.locale("ja");
+                __.locale(req, "ja");
+                req.setLocale("ja");
+        tr
+          td
+            pre.language-javascript
+              code.
+                getLocale()
+          td Returns the locale.
+          td
+            pre.language-javascript
+              code.
+                __.getLocale();
+                __.getLocale(req);
+                req.getLocale();
+        tr
+          td
+            pre.language-javascript
+              code.
+                moment()
+          td
+            |Returns a moment object.
+            br
+            br
+            |Moment can accept an Object with a locale option to override the locale.
+            br
+            br
+            |See <a href="http://www.momentjs.com">Moment.js</a> for Docs.
+          td
+            pre.language-javascript
+              code.
+                __("Today is %s", __.moment().format("dddd"));
+                __("Today is %s", __moment({locale: "ja"}).format("dddd"));
+      tr
+        td
+          pre.language-javascript
+            code.
+              numeral()
+        td
+          |Returns a numeral object.
+          br
+          br
+          |Numeral can accept an Object with a locale option to override the locale.
+          br
+          br
+          |See <a href="http://www.numeraljs.com">Numeral.js</a> for Docs.
+        td
+          pre.language-javascript
+            code.
+              __("I don't have %s", __.numeral(10000).format("$0,0"))
+              __("I don't have %s", __.numeral(10000).format("$0.0"))
+  .note.panel.panel-info
+    .panel-heading Note
+    .panel-body
+      |If your language or locale does is not in the
+      |<a href="https://github.com/iwatakeshi/gengojs/tree/master/maps" target="_blank">maps</a> list, please Fork and Pull to improve gengo.js.

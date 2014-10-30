@@ -2,37 +2,21 @@ doctype html
 html
   head
     title= title
-    meta(charset="utf-8")
-    meta(name="description", content="An uber basic and simple i18n library for Express 4" )
+    meta(name="description", content="the best i18n middleware for Express")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     meta(name="google-site-verification", content="LrbjjQ-sJZNI39mYvF_tPz_Fq3bdkmMlCORd5kzd9ec")
-
-    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-    // WARNING: Respond.js doesn't work if you view the page via file://
-    <!--[if IE]>
-    script(src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
-    script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
-    <![endif]-->
-    link(rel="stylesheet", href="/stylesheets/style.css")
-    link(rel="stylesheet", href="/bootstrap/dist/css/bootstrap.min.css")
-    link(rel="stylesheet", href="/bootswatch/yeti/bootstrap.min.css")
-    link(rel="stylesheet", href="/stylesheets/universal/navbar.css")
-    link(rel="stylesheet", href="/normalize-css/normalize.min.css")
-    link(rel="stylesheet", href="/prism/themes/prism-okaidia.min.css")
-    block styles
-  body#top
-    include universal/navbar
+    link(rel='stylesheet', href='/normalize-css/normalize.min.css')
+    link(rel='stylesheet', href='/fontawesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/bootswatch/simplex/bootstrap.min.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Noto+Sans|Nunito')
+    link(rel='stylesheet', href='/animate.css/animate.min.css')
+    link(rel='stylesheet', href='/prism/themes/prism.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.min.css')
+  body
     block content
-    script(src="/jquery/dist/jquery.min.js")
-    script(src="/bootstrap/dist/js/bootstrap.min.js")
-    script(src="/bootstrap3-typeahead/bootstrap3-typeahead.min.js")
-    script(src="/javascripts/search.js")
-    script(src="/javascripts/anchorscoll.min.js")
-    script(src="/jquery-cookie/jquery.cookie.min.js")
-    script(src="/prism/prism.min.js")
-    script(src="/javascripts/layout.js")
-    script(src="/prism/components/prism-bash.min.js")
-
-    block scripts
-    include universal/footer
+    script(type='text/javascript', src='/jquery/dist/jquery.min.js')
+    script(type='text/javascript', src='/bootstrap/dist/js/bootstrap.min.js')
+    script(type='text/javascript', src='/javascripts/scroll.min.js')
+    script(type='text/javascript', src='/prism/prism.min.js')
+    script(type='text/javascript', src='/prism/components/prism-bash.min.js')
