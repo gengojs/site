@@ -10,4 +10,4 @@ This is the official repo for [Gengo.js](http://www.gengojs.com) site. If you wo
     * Simplex from bootswatch
 
 * If you want to add more languages:
-    * The locale to look at is 'en-US.js' under approot/locales. Just translate the file.
+    * Create a file with your desired locale and simply translate it from en-US.js
