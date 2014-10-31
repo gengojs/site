@@ -4,111 +4,113 @@ section
     p
     |To configure gengo, see the table below to know which data type for each option is accepted.
     hr
-    table.table.table-hover
-      thead
-        tr
-          th Data Type
-          th Option
-          th Description
-          th Default
-          th Example
-      tbody
-        tr
-          td Object
-          td global
-          td Changes the global variable for gengo.
-          td
-            pre.language-javascript
-              code.
-                global:{
-                  gengo: "__"
-                };
-          td
-            pre.language-javascript
-              code.
-                gengo.config(global:{
-                  gengo: "__g"
-                });
-        tr
-          td String, Object
-          td directory
-          td
-            |The path to your dictionary.
-            |Note that all paths are automatically normalized and a root is appended but the root can be overrided.
-          td
-            pre.language-javascript
-              code.
-                directory: root + "/locales"
-          td
-            pre.language-javascript
-              code.
-                gengo.config({
-                  directory: {
-                    path: __dirname + "/my-folder/"
-                  }
-                });
-
-        tr
-          td Boolean, Object Array
-          td debug
-          td
-            |Outputs the debugging statemtents. Available types are info, warn, error, debug, and data. You may also
-            |pass an object to add other settings.
-          td
-            pre.language-javascript
-              code.
-                debug: false
-          td
-            pre.language-javascript
-              code.
-                //Object
-                gengo.config({
-                  debug:{
-                    cout: ['warn', "error"],
-                    timestamp:{
-                      format: "hh:mm:ss"
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th Data Type
+            th Option
+            th Description
+            th Default
+            th Example
+        tbody
+          tr
+            td Object
+            td global
+            td Changes the global variable for gengo.
+            td
+              pre.language-javascript
+                code.
+                  global:{
+                    gengo: "__"
+                  };
+            td
+              pre.language-javascript
+                code.
+                  gengo.config(global:{
+                    gengo: "__g"
+                  });
+          tr
+            td String, Object
+            td directory
+            td
+              |The path to your dictionary.
+              |Note that all paths are automatically normalized and a root is appended but the root can be overrided.
+            td
+              pre.language-javascript
+                code.
+                  directory: root + "/locales"
+            td
+              pre.language-javascript
+                code.
+                  gengo.config({
+                    directory: {
+                      path: __dirname + "/my-folder/"
                     }
-                  }
-                });
-                //Array
-                gengo.config({
-                  debug: ["warn", "error"]
-                });
+                  });
+
+          tr
+            td Boolean, Object Array
+            td debug
+            td
+              |Outputs the debugging statemtents. Available types are info, warn, error, debug, and data. You may also
+              |pass an object to add other settings.
+            td
+              pre.language-javascript
+                code.
+                  debug: false
+            td
+              pre.language-javascript
+                code.
+                  //Object
+                  gengo.config({
+                    debug:{
+                      cout: ['warn', "error"],
+                      timestamp:{
+                        format: "hh:mm:ss"
+                      }
+                    }
+                  });
+                  //Array
+                  gengo.config({
+                    debug: ["warn", "error"]
+                  });
     .note.panel.panel-info
       .panel-heading Note
       .panel-body
         |For more debugging options see <a href="https://www.github.com/iwatakeshi/cout" target="_blank">cout</a>.
     br
-    table.table.table-hover
-      tbody
-      tr
-        td String
-        td default
-        td The default locale for your app. It would normally be the locale in your native tongue.
-        td
-          pre.language-javascript
-            code.
-              default: "en-US"
-        td
-          pre.language-javascript
-            code.
-              gengo.config({
-                default: "ja"
-              });
-      tr
-        td Array
-        td supported
-        td The supported locales for your app.
-        td
-          pre.language-javascript
-            code.
-              supported: ["en-US"]
-        td
-          pre.language-javascript
-            code.
-              gengo.config({
-                supported:["en-US", "ja", "fr", "en-gb"];
-              });
+    .table-responsive
+      table.table.table-hover
+        tbody
+        tr
+          td String
+          td default
+          td The default locale for your app. It would normally be the locale in your native tongue.
+          td
+            pre.language-javascript
+              code.
+                default: "en-US"
+          td
+            pre.language-javascript
+              code.
+                gengo.config({
+                  default: "ja"
+                });
+        tr
+          td Array
+          td supported
+          td The supported locales for your app.
+          td
+            pre.language-javascript
+              code.
+                supported: ["en-US"]
+          td
+            pre.language-javascript
+              code.
+                gengo.config({
+                  supported:["en-US", "ja", "fr", "en-gb"];
+                });
 
 
     .note.panel.panel-info
@@ -120,80 +122,82 @@ section
         br
         |If you would like a case-insensitive file naming option, then please create an issue at GitHub.
     br
-    table.table.table-hover
-        tbody
-          tr
-            td Boolean
-            td router
-            td Enables you to organize your dictionary by route.
-            td
-              pre.language-javascript
-                code.
-                  router: false
-            td
-              pre.language-javascript
-                code.
-                  gengo.config({
-                    router: true
-                  })
+    .table-responsive
+      table.table.table-hover
+          tbody
+            tr
+              td Boolean
+              td router
+              td Enables you to organize your dictionary by route.
+              td
+                pre.language-javascript
+                  code.
+                    router: false
+              td
+                pre.language-javascript
+                  code.
+                    gengo.config({
+                      router: true
+                    })
     .note.panel.panel-info
       .panel-heading Note
       .panel-body
         |Setting up the routes in your dictionary is fairly easy. See Dictionary.
     br
-    table.table.table-hover
-      tbody
-        tr
-          td String
-          td extenstion
-          td Sets the file extenstion for your dictionary.
-          td
-            pre.language-javascript
-              code.
-                extenstion: ".js"
-          td
-            pre.language-javascript
-              code.
-                gengo.config({
-                  extenstion: ".json"
-                });
-        tr
-          td Object
-          td keywords
-          td
-            |Changes the keywords used for plural, default, translated, and universe.
-            br
-            br
-            |See Dictionary for usage.
-          td
-            pre.language-javascript
-              code.
-                keywords:{
-                  plural: "plural",
-                  default: "default",
-                  translated: "translated",
-                  universe: "gengo"
-                }
-          td
-            pre.language-javascript
-              code.
-                gengo.config({
-                  plural: "p",
-                  default: "d",
-                  translated: "t",
-                  universe: "u"
-                });
-        tr
-          td String
-          td cookie
-          td Sets the default variable name for cookies.
-          td
-            pre.language-javascript
-              code.
-                cookie: "locale"
-          td
-            pre.language-javascript
-              code.
-                gengo.config({
-                  cookie: "cookiename"
-                });
+    .table-responsive
+      table.table.table-hover
+        tbody
+          tr
+            td String
+            td extenstion
+            td Sets the file extenstion for your dictionary.
+            td
+              pre.language-javascript
+                code.
+                  extenstion: ".js"
+            td
+              pre.language-javascript
+                code.
+                  gengo.config({
+                    extenstion: ".json"
+                  });
+          tr
+            td Object
+            td keywords
+            td
+              |Changes the keywords used for plural, default, translated, and universe.
+              br
+              br
+              |See Dictionary for usage.
+            td
+              pre.language-javascript
+                code.
+                  keywords:{
+                    plural: "plural",
+                    default: "default",
+                    translated: "translated",
+                    universe: "gengo"
+                  }
+            td
+              pre.language-javascript
+                code.
+                  gengo.config({
+                    plural: "p",
+                    default: "d",
+                    translated: "t",
+                    universe: "u"
+                  });
+          tr
+            td String
+            td cookie
+            td Sets the default variable name for cookies.
+            td
+              pre.language-javascript
+                code.
+                  cookie: "locale"
+            td
+              pre.language-javascript
+                code.
+                  gengo.config({
+                    cookie: "cookiename"
+                  });
