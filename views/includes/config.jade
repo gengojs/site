@@ -35,7 +35,7 @@ section
             td directory
             td
               |The path to your dictionary.
-              |Note that all paths are automatically normalized and a root is appended but the root can be overrided.
+              |Note that all paths are automatically normalized and a root is appended but the root can be overridden.
             td
               pre.language-javascript
                 code.
@@ -53,7 +53,7 @@ section
             td Boolean, Object Array
             td debug
             td
-              |Outputs the debugging statemtents. Available types are info, warn, error, debug, and data. You may also
+              |Outputs the debugging statements. Available types are info, warn, error, debug, and data. You may also
               |pass an object to add other settings.
             td
               pre.language-javascript
@@ -116,7 +116,7 @@ section
     .note.panel.panel-info
       .panel-heading Note
       .panel-body
-        |gengo.js is case-insensitive when setting the default locale and the supported locale but case-sensative for file names.
+        |gengo.js is case-insensitive when setting the default locale and the supported locale but case-sensitive for file names.
         |This will reduce inconsistency for file naming and mistakes in the higher level (configuring) that may affect the lower level (file naming).
         br
         br
@@ -149,17 +149,17 @@ section
         tbody
           tr
             td String
-            td extenstion
-            td Sets the file extenstion for your dictionary.
+            td extension
+            td Sets the file extension for your dictionary.
             td
               pre.language-javascript
                 code.
-                  extenstion: ".js"
+                  extension: ".js"
             td
               pre.language-javascript
                 code.
                   gengo.config({
-                    extenstion: ".json"
+                    extension: ".json"
                   });
           tr
             td Object
