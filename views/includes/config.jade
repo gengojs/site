@@ -186,7 +186,7 @@ section
                       plural: "p",
                       default: "d",
                       translated: "t",
-                    universe: "u"
+                      universe: "u"
                   }});
           tr
             td String
@@ -203,7 +203,7 @@ section
                     cookie: "cookiename"
                   });
     h2 Sails.js
-    p 
+    p
     |Configuring gengo.js in Sails.js is a breeze. You will need to modify the <code>http.js</code> file under
     |<code>sailsapp/config/</code>.
     h3 Example
@@ -229,9 +229,9 @@ section
             extension: 'json',
             debug: ['warn', 'info']
         });
-        
+
         module.exports.http = {
-         
+
             /****************************************************************************
              *                                                                           *
              * Express middleware to use for every Sails request. To add custom          *
@@ -241,9 +241,9 @@ section
              * `customMiddleware` config option.                                         *
              *                                                                           *
              ****************************************************************************/
-         
+
             middleware: {
-         
+
                 /***************************************************************************
                  *                                                                          *
                  * The order in which middleware should be run for HTTP request. (the Sails *
@@ -269,14 +269,14 @@ section
                     '404',
                     '500',
                 ],
-         
+
                 /****************************************************************************
                  *                                                                           *
                  * Example custom middleware; logs each request to the console.              *
                  *                                                                           *
                  ****************************************************************************/
                 gengo: gengo.init,
-         
+
                 /***************************************************************************
                  *                                                                          *
                  * The body parser that will handle incoming multipart HTTP requests. By    *
@@ -285,11 +285,11 @@ section
                  * http://www.senchalabs.org/connect/multipart.html for other options.      *
                  *                                                                          *
                  ***************************************************************************/
-         
+
                 // bodyParser: require('skipper')
-         
+
             },
-         
+
             /***************************************************************************
              *                                                                          *
              * The number of seconds to cache flat files on disk being served by        *
@@ -299,6 +299,6 @@ section
              * since that's the only time Express will cache flat-files.                *
              *                                                                          *
              ***************************************************************************/
-         
+
             // cache: 31557600000
         };
