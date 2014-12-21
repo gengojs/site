@@ -1,0 +1,138 @@
+{
+  "main": {
+    "motto": "the best i18n middleware for Express"
+  },
+  "intro": {
+    "about": [
+      "gengo.js is an i18n middleware that simply translates your phrases.",
+      "It aims to ease the workflow by allowing you to use three simple",
+      "notations to access your definitions.",
+      "gengo also supports file extensions with .js and .json, routing,",
+      "plurality, multi-line phrases, locale override using cookies,",
+      "Mustache.js, Kawari.js, Moment.js, and Numeral.js."
+    ],
+    "note": [
+      "gengo.js is fairly new and some features may or may not prove to be",
+      "useful. Therefore, feedback is the most important way to improve gengo.js."
+    ]
+  },
+  "install": {
+    "instruct": [
+      "gengo.js has been tested in Windows and Linux and works best with Express 4 and Sails.js.",
+      "Once installed, gengo.js also includes two sample Sails.js apps that you can try."
+    ],
+    "initialize": "You can simply initialize gengo.js by requiring and configuring it. See Configuration.",
+    "usage": "gengo.js uses `__` but can be changed. See Configuration",
+    "note": "gengo.js can be used in a script tag and in most template engines."
+  },
+  "api": {
+    "info": [
+      "gengo is a function that accepts from 1 to n arguments. If the definition of your phrase is found,",
+      "it will return either a string or undefined."
+    ],
+    "input": {
+      "translated": [
+        "Input accepts a String and an Object.",
+        "The String accepts a phrase and the Object accepts a phrase, locale, and/or count."
+      ],
+      "table": {
+        "one": "The phrase to look for in the requested locale.",
+        "two": {
+          "one": "The phrase to look for in the requested locale.",
+          "two": "The locale to override.",
+          "three": "The plurality of the phrase."
+        },
+        "note": "gengo.js uses a simple 2 > 1 rule for plurality."
+      }
+    },
+    "notation": {
+      "info": [
+        "When you pass a phrase, there are three notations that can be",
+        " used to tell gengo how to look up your definitions. See Dictionary for setup."
+      ],
+      "table": {
+        "one": "Searches for the definition directly, assuming there are no sub-keys for the phrase in your dictionary.",
+        "two": "Searches for the definition assuming a phrase may contain a sub-key or a key that is dotted and may also contain a sub-key.",
+        "three": "Searches for the definition by parsing the dictionary object in a dotted way."
+      }
+    },
+    "arg": {
+      "note": "There are different types of data that arg can accept and will interpret them based on the data.",
+      "table": {
+        "one": "gengo will interpret a String as sprintf, locale, or count.",
+        "two": "gengo will interpret an Array as sprintf.",
+        "three": "gengo will interpret an Object as sprintf, locale, count, and/or Mustache.js.",
+        "four": "gengo will interpret a Number as count."
+      }
+    },
+    "methods": {
+      "table": {
+        "one": "Returns the current language.",
+        "two": "Sets the locale.",
+        "three": "Returns the locale.",
+        "four": {
+          "one": "Returns a Moment object.",
+          "two": "Moment can accept an Object with a locale option to override the locale.",
+          "three": "See [momentjs.com](http://www.momentjs.com)[blank] for Docs."
+        },
+        "five": {
+          "one": "Returns a Numeral object.",
+          "two": "Numeral can accept an Object with a locale option to override the locale.",
+          "three": "See [numeraljs.com](http://www.numeraljs.com)[blank] for Docs."
+        },
+        "note": [
+          "If your language or locale is not in the ",
+          "[maps list](https://github.com/iwatakeshi/gengojs/tree/master/maps)[blank], please Fork or Pull to improve gengo.js."
+        ]
+      }
+    }
+  },
+  "config": {
+    "info": "To configure gengo, see the table below to know which data type for each option is accepted.",
+    "table": {
+      "one": "Changes the global variable for gengo.",
+      "two": [
+        "The path to your dictionary. Note that all paths are automatically",
+        " normalized and a root is appended but the root can be overridden."
+      ],
+      "three": {
+        "default": [
+          "Outputs the debugging statements. Available types are info, warn, error, debug, and data. ",
+          "You may also pass an object to add other settings."
+        ],
+        "note": "For more debugging options see [cout](https://www.github.com/iwatakeshi/cout)[blank]."
+      },
+      "four": "The default locale for your app. It would normally be the locale in your native tongue.",
+      "five": {
+        "default": "The supported locales for your app.",
+        "note": {
+          "one": [
+            "gengo.js is case-insensitive when setting the default locale ",
+            "and the supported locale but case-sensitive for file names.",
+            " This will reduce inconsistency for file naming and mistakes ",
+            "in the higher level (configuring) that may affect the lower level (file naming)."
+          ],
+          "two": [
+            "If you would like a case-insensitive file naming option, ",
+            "then please create an issue at GitHub."
+          ]
+        },
+        "six": {
+          "default": "Enables you to organize your dictionary by route.",
+          "note": "Setting up the routes in your dictionary is fairly easy. See Dictionary."
+        },
+        "seven": "Enables or disables markdown.",
+        "eight": "Sets the file extension for your dictionary.",
+        "nine": {
+          "one": "Changes the keywords used for plural, default, translated, and universe.",
+          "two": "See Dictionary for usage."
+        },
+        "ten": "Sets the default variable name for cookies."
+      }
+    },
+    "sails":[
+    	"Configuring gengo.js in Sails.js is a breeze. ",
+    	"You will need to modify the `http.js` file under `sailsapp/config/.`"
+    ]
+  }
+}

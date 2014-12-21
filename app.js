@@ -5,6 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
+var gengo = require('gengojs');
+
+gengo.config({
+    extension: 'json',
+    directory:{
+        path:path.join(__dirname, '/config/locales')
+    },
+    supported:['ja'],
+    debug:['info','warn', 'error']
+});
 
 var routes = require('./routes/index');
 
@@ -16,7 +26,7 @@ app.set('view engine', 'jade');
 
 app.use(compression({
     threshold: 512
-}))
+}));
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -27,6 +37,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(gengo.init);
 
 app.use('/', routes);
 

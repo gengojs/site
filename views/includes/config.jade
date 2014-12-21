@@ -1,8 +1,7 @@
 section
   .content
     h1#configuration Configuration
-    p
-    |To configure gengo, see the table below to know which data type for each option is accepted.
+    p #{__('config.info')}
     hr
     .table-responsive
       table.table.table-hover
@@ -17,7 +16,7 @@ section
           tr
             td Object
             td global
-            td Changes the global variable for gengo.
+            td #{__('config.table.one')}
             td
               pre.language-javascript
                 code.
@@ -33,9 +32,7 @@ section
           tr
             td String, Object
             td directory
-            td
-              |The path to your dictionary.
-              |Note that all paths are automatically normalized and a root is appended but the root can be overridden.
+            td #{__('config.table.two')}
             td
               pre.language-javascript
                 code.
@@ -52,9 +49,7 @@ section
           tr
             td Boolean, Object Array
             td debug
-            td
-              |Outputs the debugging statements. Available types are info, warn, error, debug, and data. You may also
-              |pass an object to add other settings.
+            td #{__('config.table.three')}
             td
               pre.language-javascript
                 code.
@@ -77,8 +72,7 @@ section
                   });
     .note.panel.panel-info
       .panel-heading Note
-      .panel-body
-        |For more debugging options see <a href="https://www.github.com/iwatakeshi/cout" target="_blank">cout</a>.
+      .panel-body !{__('config.table.three.note')}
     br
     .table-responsive
       table.table.table-hover
@@ -86,7 +80,7 @@ section
         tr
           td String
           td default
-          td The default locale for your app. It would normally be the locale in your native tongue.
+          td #{__('config.table.four')}
           td
             pre.language-javascript
               code.
@@ -100,7 +94,7 @@ section
         tr
           td Array
           td supported
-          td The supported locales for your app.
+          td #{__('config.table.five')}
           td
             pre.language-javascript
               code.
@@ -115,12 +109,10 @@ section
 
     .note.panel.panel-info
       .panel-heading Note
-      .panel-body
-        |gengo.js is case-insensitive when setting the default locale and the supported locale but case-sensitive for file names.
-        |This will reduce inconsistency for file naming and mistakes in the higher level (configuring) that may affect the lower level (file naming).
+      .panel-body #{__('config.table.five.note.one')}
         br
         br
-        |If you would like a case-insensitive file naming option, then please create an issue at GitHub.
+        |#{__('config.table.five.note.two')}
     br
     .table-responsive
       table.table.table-hover
@@ -128,7 +120,7 @@ section
             tr
               td Boolean
               td router
-              td Enables you to organize your dictionary by route.
+              td #{__('config.table.six')}
               td
                 pre.language-javascript
                   code.
@@ -138,19 +130,32 @@ section
                   code.
                     gengo.config({
                       router: true
-                    })
+                    });
     .note.panel.panel-info
       .panel-heading Note
-      .panel-body
-        |Setting up the routes in your dictionary is fairly easy. See Dictionary.
+      .panel-body #{__('config.table.six.note')}
     br
     .table-responsive
       table.table.table-hover
         tbody
           tr
+            td Boolean
+            td markdown
+            td #{__('config.table.seven')}
+            td
+              pre.language-javascript
+                code.
+                  markdown: false
+            td
+              pre.language-javascript
+                code.
+                  gengo.config({
+                    markdown: true
+                  });
+          tr
             td String
             td extension
-            td Sets the file extension for your dictionary.
+            td #{__('config.table.eight')}
             td
               pre.language-javascript
                 code.
@@ -164,11 +169,10 @@ section
           tr
             td Object
             td keywords
-            td
-              |Changes the keywords used for plural, default, translated, and universe.
+            td #{__('config.table.nine.one')}
               br
               br
-              |See Dictionary for usage.
+              |#{__('config.table.nine.two')}
             td
               pre.language-javascript
                 code.
@@ -191,7 +195,7 @@ section
           tr
             td String
             td cookie
-            td Sets the default variable name for cookies.
+            td #{__('config.table.ten')}
             td
               pre.language-javascript
                 code.
@@ -203,9 +207,7 @@ section
                     cookie: "cookiename"
                   });
     h2 Sails.js
-    p
-    |Configuring gengo.js in Sails.js is a breeze. You will need to modify the <code>http.js</code> file under
-    |<code>sailsapp/config/</code>.
+    p !{__('config.sails')}
     h3 Example
     pre.language-javascript
       code.
@@ -253,9 +255,9 @@ section
                 order: [
                     'startRequestTimer',
                     'cookieParser',
-                    /*----*/
+                    /*----------------*/
                     'gengo',
-                    /*----*/
+                    /*----------------*/
                     'session',
                     'bodyParser',
                     'handleBodyParserError',

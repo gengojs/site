@@ -1,12 +1,9 @@
 section
   .content
     h1#api API
-    p
-    |gengo is a function that accepts from 1 to n arguments.
-    |If the definition of your phrase is found, it will return either a string or undefined.
+    p #{__('api.info')}
     h2 Input
-    p
-    |Input accepts a String and an Object. The String accepts a phrase and the Object accepts a phrase, locale, and/or count.
+    p #{__('api.input')}
     hr
     .table-responsive
       table.table.table-hover
@@ -20,7 +17,7 @@ section
           tr
             td String
             td phrase
-            td The phrase to look for in the requested locale.
+            td #{__('api.input.table.one')}
             td
               pre.language-javascript
                 code.
@@ -33,11 +30,11 @@ section
               br
               | count
             td
-              |The phrase to look for in the requested locale.
+              |#{__("api.input.table.two.one")}
               br
-              |The locale to override.
+              |#{__("api.input.table.two.two")}
               br
-              |The plurality of the phrase.
+              |#{__("api.input.table.two.three")}
             td
               pre.language-javascript
                 code.
@@ -48,11 +45,10 @@ section
       .panel-heading Note
       .panel-body
         p
-        |gengo.js uses a simple 2 > 1 rule for plurality.
+        |#{__('api.input.table.note')}
     h3 Notation
     p
-    |When you pass a phrase, there are three notations that can be
-    |used to tell gengo how to look up your definitions. See Dictionary for setup.
+    |#{__('api.notation.info')}
     hr
     .table-responsive
       table.table.table-hover
@@ -64,7 +60,7 @@ section
         tbody
           tr
             td Phrase
-            td Searches for the definition directly, assuming there are no sub-keys for the phrase in your dictionary.
+            td #{__('api.notation.table.one')}
             td
               pre.language-javascript
                 code.
@@ -72,7 +68,7 @@ section
                   __("Hello World");
           tr
             td Brackets
-            td Searches for the definition assuming a phrase may contain a sub-key or a key that is dotted and may also contain a sub-key.
+            td #{__('api.notation.table.two')}
             td
               pre.language-javascript
                 code.
@@ -86,7 +82,7 @@ section
                   __("[navbar.home].subkey");
           tr
             td Dot
-            td Searches for the definition by parsing the dictionary object in a dotted way.
+            td #{__('api.notation.table.two')}
             td
               pre.language-javascript
                 code.
@@ -95,7 +91,7 @@ section
     hr
     h2 Arg
     p
-    | There are different types of data that arg can accept and will interpret based on the data.
+    | #{__('api.arg.note')}
     hr
     .table-responsive
       table.table.table-hover
@@ -107,7 +103,7 @@ section
         tbody
           tr
             td String
-            td gengo will interpret a String as sprintf, locale, or count.
+            td #{__('api.arg.table.one')}
             td
               pre.language-javascript
                 code.
@@ -123,7 +119,7 @@ section
                   __("...%d...");
           tr
             td Array
-            td gengo will interpret an Array as sprintf.
+            td #{__('api.arg.table.two')}
             td
               pre.language-javascript
                 code.
@@ -131,7 +127,7 @@ section
                   __("...%s...%s", ["sprintf", "sprintf-n"])
           tr
             td Object
-            td gengo will interpret an Object as sprintf, locale, count, and/or Mustache.js.
+            td #{__('api.arg.table.three')}
             td
               pre.language-javascript
                 code.
@@ -145,7 +141,7 @@ section
                   __("...{{a}}...",{a:"mustache", b:"mustache-2", c: "mustache-n"});
           tr
             td Number
-            td gengo will interpret a Number as count.
+            td #{__('api.arg.table.four')}
             td
               pre.language-javascript
                 code.
@@ -167,7 +163,7 @@ section
               pre.language-javascript
                 code.
                   language()
-            td Returns the current language.
+            td #{__('api.methods.table.one')}
             td
               pre.language-javascript
                 code.
@@ -177,7 +173,7 @@ section
               pre.language-javascript
                 code.
                   setLocale()
-            td Sets the locale.
+            td #{__('api.methods.table.two')}
             td
               pre.language-javascript
                 code.
@@ -189,7 +185,7 @@ section
               pre.language-javascript
                 code.
                   getLocale()
-            td Returns the locale.
+            td #{__('api.methods.table.three')}
             td
               pre.language-javascript
                 code.
@@ -202,13 +198,13 @@ section
                 code.
                   moment()
             td
-              |Returns a moment object.
+              |#{__('api.methods.table.four.one')}
               br
               br
-              |Moment can accept an Object with a locale option to override the locale.
+              |#{__('api.methods.table.four.two')}
               br
               br
-              |See <a href="http://www.momentjs.com">Moment.js</a> for Docs.
+              |!{__('api.methods.table.four.three')}
             td
               pre.language-javascript
                 code.
@@ -220,13 +216,13 @@ section
               code.
                 numeral()
           td
-            |Returns a numeral object.
+            |#{__('api.methods.table.five.one')}
             br
             br
-            |Numeral can accept an Object with a locale option to override the locale.
+            |#{__('api.methods.table.five.two')}
             br
             br
-            |See <a href="http://www.numeraljs.com">Numeral.js</a> for Docs.
+            |!{__('api.methods.table.five.three')}
           td
             pre.language-javascript
               code.
@@ -235,5 +231,4 @@ section
   .note.panel.panel-info
     .panel-heading Note
     .panel-body
-      |If your language or locale is not in the
-      |<a href="https://github.com/iwatakeshi/gengojs/tree/master/maps" target="_blank">maps</a> list, please Fork and Pull to improve gengo.js.
+      |!{__('api.methods.table.note')}
