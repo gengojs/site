@@ -59,7 +59,7 @@
           "Searches for the definition assuming a phrase may contain a ",
           "sub-key or a key that is dotted and may also contain a sub-key."
         ],
-        "three": "Searches for the definition by parsing the dictionary object in a dotted way."
+        "three": "Searches for the definition by searching the dictionary's object in a dotted way."
       }
     },
     "arg": {
@@ -115,30 +115,19 @@
       "four": "The default locale for your app. It would normally be the locale in your native tongue.",
       "five": {
         "default": "The supported locales for your app.",
-        "note": {
-          "one": [
-            "gengo.js is case-insensitive when setting the default locale ",
-            "and the supported locale but case-sensitive for file names.",
-            " This will reduce inconsistency for file naming and mistakes ",
-            "in the higher level (configuring) that may affect the lower level (file naming)."
-          ],
-          "two": [
-            "If you would like a case-insensitive file naming option, ",
-            "then please create an issue at GitHub."
-          ]
-        },
-        "six": {
-          "default": "Enables you to organize your dictionary by route.",
-          "note": "Setting up the routes in your dictionary is fairly easy. See Dictionary."
-        },
-        "seven": "Enables or disables markdown.",
-        "eight": "Sets the file extension for your dictionary.",
-        "nine": {
-          "one": "Changes the keywords used for plural, default, translated, and universe.",
-          "two": "See Dictionary for usage."
-        },
         "ten": "Sets the default variable name for cookies."
-      }
+      },
+      "six": {
+        "default": "Enables you to organize your dictionary by route.",
+        "note": "Setting up the routes in your dictionary is fairly easy. See Dictionary."
+      },
+      "seven": "Enables or disables markdown.",
+      "eight": "Sets the file extension for your dictionary.",
+      "nine": {
+        "one": "Changes the keywords used for plural, default, translated, and universe.",
+        "two": "See Dictionary for usage."
+      },
+      "ten":"Sets the default variable name for cookies."
     },
     "sails": [
       "Configuring gengo.js in Sails.js is a breeze. ",

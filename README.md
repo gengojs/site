@@ -11,4 +11,4 @@ If you would like to improve this site in a way, please go ahead and fork it awa
     * Simplex from bootswatch
 
 * If you want to add more languages:
-    * Create a file with your desired locale and simply translate it from en-US.js
+    * Create a file with your desired locale and simply translate it from en-US.json. The file is located under ./config/locales
