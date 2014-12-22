@@ -1,7 +1,7 @@
 section
   .content
     h1#dictionary Dictionary
-    p Setting up your dictionary is simple. We will look at the basic setup then the usages with notations and keywords.
+    p #{__('dict.info')}
     h2 Basics
     .table-responsive
       table.table.table-hover
@@ -60,8 +60,7 @@ section
                   }
     .note.panel.panel-info
       .panel-heading Note
-      .panel-body
-        |The key, <em>index</em>, always refers to <strong>/</strong> and cannot be changed. The keys must follow the URL path.
+      .panel-body !{__('dict.note.one')}
         h3 Example
         .table-responsive
           table.table.table-hover
@@ -115,8 +114,7 @@ section
                         }
         .note.panel.panel-primary
           .panel-heading Note
-          .panel-body
-            |gengo supports version numbers in URLs. The following is the regex for version numbers:
+          .panel-body #{__("dict.note.one.note")}
             pre.language-javascript
               code.
                 /\d{1,2}(\.)\d{1,2}((\.)\d{1,2})?$/
@@ -282,8 +280,7 @@ section
                   }
     .note.panel.panel-info
       .panel-heading Note
-      .panel-body
-        |When you use Brackets or Dot notation, you must provide the same definition in your native dictionary (default locale).
+      .panel-body #{__("dict.note.two")}
         h3 Example
         .table-responsive
           table.table.table-hover
@@ -348,8 +345,7 @@ section
                         }
                       }
     h2 Keywords
-    p Keywords are automatically searched by gengo.
-    |If no keyword is provided gengo will see if key in your dictionary is the desired phrase.
+    p #{__("dict.keyword.info")}
     br
     br
     .table-responsive
@@ -364,7 +360,7 @@ section
         tbody
           tr
             td plural
-            td Used to specify a plural form of a key.
+            td #{__("dict.keyword.table.one")}
             td
               pre.language-javascript
                 code.
@@ -387,7 +383,7 @@ section
                   }
           tr
             td default
-            td Used to specify the default term of a key. Useful when using Brackets or Dot notation.
+            td #{__("dict.keyword.table.two")}
             td
               pre.language-javascript
                 code.
@@ -410,7 +406,7 @@ section
                   }
           tr
             td translated
-            td Used to specify the translated term of a key. Useful when using Brackets or Dot notation.
+            td #{__("dict.keyword.table.three")}
             td
               pre.language-javascript
                 code.
@@ -433,9 +429,7 @@ section
                   }
           tr
             td universe
-            td
-              |Used to access keys across all routes. This means that if the URL path is /about,
-              |then you may access anything from the universe key to be used in the about page.
+            td !{__("dict.keyword.table.four")}
             td
               pre.language-javascript
                 code.

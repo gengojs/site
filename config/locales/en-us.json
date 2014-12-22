@@ -130,9 +130,38 @@
         "ten": "Sets the default variable name for cookies."
       }
     },
-    "sails":[
-    	"Configuring gengo.js in Sails.js is a breeze. ",
-    	"You will need to modify the `http.js` file under `sailsapp/config/.`"
+    "sails": [
+      "Configuring gengo.js in Sails.js is a breeze. ",
+      "You will need to modify the `http.js` file under `sailsapp/config/.`"
     ]
+  },
+  "dict": {
+    "info": [
+      "Setting up your dictionary is simple. ",
+      "We will look at the basic setup then the usages with notations and keywords."
+    ],
+    "note": {
+      "one": {
+        "default": "The key, *index*, always refers to **/** and cannot be changed. The keys must follow the URL path.",
+        "note": "gengo supports version numbers in URLs. The following is the regex for version numbers:"
+      },
+      "two": "When you use Brackets or Dot notation, you must provide the same definition in your native dictionary (default locale)."
+    },
+    "keyword": {
+      "info": [
+        "Keywords are automatically searched by gengo. ",
+        "If no keyword is provided gengo will see if key in your dictionary is the desired phrase."
+      ],
+      "table": {
+        "one": "Used to specify a plural form of a key.",
+        "two": "Used to specify the default term of a key. Useful when using Brackets or Dot notation.",
+        "three": "Used to specify the translated term of a key. Useful when using Brackets or Dot notation.",
+        "four": [
+          "Used to access keys across all routes. ",
+          "This means that if the URL path is **/about**, ",
+          "then you may access anything from the universe key to be used in the about page."
+        ]
+      }
+    }
   }
 }
