@@ -1,0 +1,60 @@
+extends layout
+
+block content
+  header
+   .github-fork-ribbon-wrapper.left
+      .github-fork-ribbon
+        a(href='https://www.github.com/iwatakeshi/gengojs' target='_blank') Fork me on GitHub
+          .fa.fa-github
+  //main section
+  section#top
+    //toggle
+    #menu.animated.bounceInDown
+      a#toggle(href='##')
+        i.fa.fa-bars
+      ul
+        li
+          a(href='#introduction') Introduction
+        li
+          a(href='#installation') Installation
+        li
+          a(href='#api') API
+        li
+          a(href='#configuration') Configuration
+        li
+          a(href='#dictionary') Dictionary
+        li
+          a(href='#credits') Credits
+    #globe.animated.bounceInDown
+      a#toggle(href='##')
+        i.fa.fa-globe
+      ul
+        li
+          a(href='#') English
+        li
+          a(href='#') Japanese
+        li
+          a(href='https://www.github.com/iwatakeshi/gengojs-site/' target="_blank") Fork
+    #heading.animated.fadeInUp
+      #logo= title
+      #tagline #{__('main.motto')}
+    #version.animated.bounce
+      #npm v0.3
+
+  //sections
+  include ./includes/intro
+  include ./includes/install
+  include ./includes/api
+  include ./includes/config
+  include ./includes/dictionary
+  include ./includes/credit
+  footer
+    .row
+      .col-lg-12
+        .content
+          ul.list-unstyled
+            li.pull-right
+              a(href='#top') Back to top
+            li
+              |This is an open source project licensed under MIT by
+              |<a href="https://twitter.com/iwatakeshi" target="_blank">@iwatakeshi</a>

@@ -1,0 +1,581 @@
+section
+  .content
+    h1#dictionary Dictionary
+    p Setting up your dictionary is simple. We will look at the basic setup then the usages with notations and keywords.
+    h2 Basics
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th router
+            th locale
+            th Javascript
+            th JSON
+        tbody
+          tr
+            td
+              pre.language-javascript
+                code.
+                  false
+            td
+              pre.language-javascript
+                code.
+                  "ja"
+            td
+              pre.language-javascript
+                code.
+                  module.exports = {
+                    "Hello":"こんにちは"
+                  };
+            td
+              pre.language-javascript
+                code.
+                  {
+                    "Hello":"こんにちは"
+                  }
+          tr
+            td
+              pre.language-javascript
+                code.
+                  true
+            td
+              pre.language-javascript
+                code.
+                  "ja"
+            td
+              pre.language-javascript
+                code.
+                  module.exports = {
+                    "index": {
+                      "Hello":"こんにちは"
+                    }
+                  };
+            td
+              pre.language-javascript
+                code.
+                  {
+                    "index": {
+                      "Hello":"こんにちは"
+                    }
+                  }
+    .note.panel.panel-info
+      .panel-heading Note
+      .panel-body
+        |The key, <em>index</em>, always refers to <strong>/</strong> and cannot be changed. The keys must follow the URL path.
+        h3 Example
+        .table-responsive
+          table.table.table-hover
+            thead
+              tr
+                th URL Path
+                th Javascript
+                th JSON
+            tbody
+              tr
+                td /
+                td
+                  pre.language-javascript
+                    code.
+                      module.exports = {
+                        "index": {
+                          "Hello":"こんにちは"
+                        }
+                      };
+                  td
+                    pre.language-javascript
+                      code.
+                        {
+                          "index": {
+                           "Hello":"こんにちは"
+                          }
+                        }
+              tr
+                td /about
+                td
+                  pre.language-javascript
+                    code.
+                      module.exports = {
+                        "index": {
+                          "Hello":"こんにちは"
+                        },
+                        "about": {
+                          "Hello":"こんにちは"
+                        }
+                      };
+                  td
+                    pre.language-javascript
+                      code.
+                        {
+                          "index": {
+                            "Hello":"こんにちは"
+                          },
+                          "about": {
+                            "Hello":"こんにちは"
+                          }
+                        }
+        .note.panel.panel-primary
+          .panel-heading Note
+          .panel-body
+            |gengo supports version numbers in URLs. The following is the regex for version numbers:
+            pre.language-javascript
+              code.
+                /\d{1,2}(\.)\d{1,2}((\.)\d{1,2})?$/
+        h3 Example
+        .table-responsive
+          table.table.table-hover
+            thead
+              tr
+                th URL Path
+                th Javascript
+                th JSON
+            tbody
+              tr
+                td /v0.2/api/greeting
+                td
+                  pre.language-javascript
+                    code.
+                      module.exports = {
+                        "index": {
+                          "Hello":"こんにちは"
+                        },
+                        "v0.2": {
+                          "api": {
+                            "greeting": {
+                              "hello":"こんにちは"
+                            }
+                          }
+                        }
+                      };
+                  td
+                    pre.language-javascript
+                      code.
+                        {
+                          "index": {
+                            "Hello":"こんにちは"
+                          },
+                          "v0.2": {
+                            "api": {
+                              "greeting": {
+                                "hello":"こんにちは"
+                              }
+                            }
+                          }
+                        }
+    h2 Notation
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th Notation
+            th Example
+            th Javascript
+            th JSON
+        tbody
+          tr
+            td Phrase
+            td
+              pre.language-javascript
+                code.
+                  //phrase
+                  __("Hello");
+            td
+              pre.language-javascript
+                code.
+                  //phrase
+                  module.exports = {
+                    "Hello": "こんにちは"
+                  };
+            td
+              pre.language-javascript
+                code.
+                  //phrase
+                  {
+                    "Hello": "こんにちは"
+                  }
+          tr
+            td Brackets
+            td
+              pre.language-javascript
+                code.
+                  //phrase
+                  __("[Hello]");
+                  //phrase with subkey
+                  __("[Hello].informal");
+                  //dotted key
+                  __("[greeting.hello]");
+                  //dotted key with subkey
+                  __("[greeting.hello].informal");
+            td
+              pre.language-javascript
+                code.
+                  //phrase
+                  module.exports = {
+                    "Hello": "こんにちは"
+                  };
+                  //phrase with subkey
+                  module.exports = {
+                    "Hello": {
+                      "informal": "ちっすー"
+                    }
+                  };
+                  //dotted key
+                  module.exports = {
+                    "greeting.hello": "こんにちは"
+                  };
+                  //dotted key with subkey
+                  module.exports = {
+                    "greeting.hello": {
+                      "informal": "ちっすー"
+                    }
+                  };
+            td
+              pre.language-javascript
+                code.
+                  //phrase
+                  {
+                    "Hello": "こんにちは"
+                  }
+                  //phrase with subkey
+                  {
+                    "Hello": {
+                      "informal": "ちっすー"
+                    }
+                  }
+                  //dotted key
+                  {
+                    "greeting.hello": "こんにちは"
+                  }
+                  //dotted key with subkey
+                  {
+                    "greeting.hello": {
+                      "informal": "ちっすー"
+                    }
+                  }
+          tr
+            td Dot
+            td
+              pre.language-javascript
+                code.
+                  //dotted parsing
+                  __("greeting.hello.informal")
+            td
+              pre.language-javascript
+                code.
+                  //dotted parsing
+                  module.exports = {
+                    "greeting": {
+                      "hello": {
+                        "informal": "ちっすー"
+                      }
+                    }
+                  };
+            td
+              pre.language-javascript
+                code.
+                  //dotted parsing
+                  {
+                    "greeting": {
+                      "hello": {
+                        "informal": "ちっすー"
+                      }
+                    }
+                  }
+    .note.panel.panel-info
+      .panel-heading Note
+      .panel-body
+        |When you use Brackets or Dot notation, you must provide the same definition in your native dictionary (default locale).
+        h3 Example
+        .table-responsive
+          table.table.table-hover
+            thead
+              tr
+                th locale
+                th Javascript
+                th JSON
+            tbody
+              tr
+                td
+                  pre.language-javascript
+                    code.
+                      "en-US"
+                td
+                  pre.language-javascript
+                    code.
+                      //dotted parsing
+                      module.exports = {
+                        "greeting": {
+                          "hello": {
+                            "informal": "Hey"
+                          }
+                        }
+                      };
+                td
+                  pre.language-javascript
+                    code.
+                      //dotted parsing
+                      {
+                        "greeting": {
+                          "hello": {
+                            "informal": "Hey"
+                          }
+                        }
+                      }
+              tr
+                td
+                  pre.language-javascript
+                    code.
+                      "ja"
+                td
+                  pre.language-javascript
+                    code.
+                      //dotted parsing
+                      module.exports = {
+                        "greeting": {
+                          "hello": {
+                            "informal": "ちっすー"
+                          }
+                        }
+                      };
+                td
+                  pre.language-javascript
+                    code.
+                      //dotted parsing
+                      {
+                        "greeting": {
+                          "hello": {
+                            "informal": "ちっすー"
+                          }
+                        }
+                      }
+    h2 Keywords
+    p Keywords are automatically searched by gengo.
+    |If no keyword is provided gengo will see if key in your dictionary is the desired phrase.
+    br
+    br
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th Keyword
+            th Description
+            th locale
+            th Javascript
+            th JSON
+        tbody
+          tr
+            td plural
+            td Used to specify a plural form of a key.
+            td
+              pre.language-javascript
+                code.
+                  "es"
+            td
+              pre.language-javascript
+                code.
+                  module.exports = {
+                    "Dog": {
+                      "plural":"Perros"
+                    }
+                  };
+            td
+              pre.language-javascript
+                code.
+                  {
+                    "Dog": {
+                      "plural": "Perros"
+                    }
+                  }
+          tr
+            td default
+            td Used to specify the default term of a key. Useful when using Brackets or Dot notation.
+            td
+              pre.language-javascript
+                code.
+                  "en-US"
+            td
+              pre.language-javascript
+                code.
+                  module.exports = {
+                    "greeting.hello": {
+                      "default": "Hello"
+                    }
+                  };
+            td
+              pre.language-javascript
+                code.
+                  {
+                    "greeting.hello": {
+                      "default": "Hello"
+                    }
+                  }
+          tr
+            td translated
+            td Used to specify the translated term of a key. Useful when using Brackets or Dot notation.
+            td
+              pre.language-javascript
+                code.
+                  "ja"
+            td
+              pre.language-javascript
+                code.
+                  module.exports = {
+                    "greeting.hello": {
+                      "translated": "こんにちは"
+                    }
+                  };
+            td
+              pre.language-javascript
+                code.
+                  {
+                    "greeting.hello": {
+                      "translated": "こんにちは"
+                    }
+                  }
+          tr
+            td universe
+            td
+              |Used to access keys across all routes. This means that if the URL path is /about,
+              |then you may access anything from the universe key to be used in the about page.
+            td
+              pre.language-javascript
+                code.
+                  "ja"
+            td
+              pre.language-javascript
+                code.
+                  module.exports= {
+                    "index": {
+                      "Hello": "こんにちは"
+                    },
+                    "gengo":{
+                      "navbar": {
+                        "home": "ホーム",
+                        "about":"アバウト"
+                      }
+                    }
+                  };
+            td
+              pre.language-javascript
+                code.
+                 {
+                    "index": {
+                      "Hello": "こんにちは"
+                    },
+                    "gengo": {
+                      "navbar": {
+                        "home": "ホーム",
+                        "about":"アバウト"
+                      }
+                    }
+                  }
+    h2 Markdown
+    p gengo.js has a built-in and customized markdown parser that enables you to insert basic formatting into your phrase.
+    |This will allow you to focus on other things rather than worry about the tedious process of
+    |inserting html into your phrases.
+    br
+    br
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th Types
+            th Example
+        tbody
+          tr
+            td Links
+            td
+              pre.language-javascript
+                code.
+                  //standard links
+                  __("Welcome to [Gengo.js](http://gengojs.com)")
+                  __("Welcome to [Gengo.js](http://gengojs.com)[blank]")
+                  __("Welcome to [Gengo.js](http://gengojs.com)[self]")
+
+                  //twitter
+                  __("Follow me @[iwatakeshi](@iwatakeshi)")
+                  __("Follow me [@iwatakeshi](@iwatakeshi)[blank]")
+                  __("Follow me [iwatakeshi](@iwatakeshi)[self]")
+
+                  //bookmark
+                  __("[text](#attribute-to-somewhere)")
+          tr
+            td Formats
+            td
+              pre.language-javascript
+                code.
+                  //bold
+                  __("Welcome to *Gengo.js*")
+                  __("Welcome to _Gengo.js_")
+
+                  //italics
+                  __("Welcome to **Gengo.js**")
+                  __("Welcome to __Gengo.js__")
+
+                  //code
+                  __("This is `code`");
+
+                  //strike
+                  __("This is a ~~strike~~")
+
+                  //superscript
+                  __("This is ^[text]")
+                  __("This is ^[1](#bookmark)")
+                  __("This is ^[[1]](#link-to-bookmarked-superscript)")
+    br
+    .note.panel.panel-info
+      .panel-heading Note
+      .panel-body
+        | Links supports the following targets:
+        ul
+          li _blank
+          li _self
+          li _parent
+          li _top
+          li
+            em framename
+    h2 Multi-line Dictionaries
+    p
+    |There are cases when writing long phrases into your dictionary makes it hard to keep the format short and sweet.
+    |To overcome this problem, gengo allows you to use arrays in your dictionary.
+    br
+    br
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th Javascript
+        tbody
+          tr
+            td
+              pre.language-javascript
+                code.
+                  module.exports = {
+                    "example.paragraphs.lorem": [
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ",
+                      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
+                      "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+                      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum ",
+                      "dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ",
+                      "sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    ]
+                  };
+    .table-responsive
+      table.table.table-hover
+        thead
+          tr
+            th JSON
+        tbody
+          tr
+            td
+              pre.language-javascript
+                code.
+                  {
+                    "example.paragraphs.lorem": [
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ",
+                      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
+                      "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+                      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum ",
+                      "dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, ",
+                      "sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    ]
+                  }
