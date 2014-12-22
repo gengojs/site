@@ -51,13 +51,22 @@
         " used to tell gengo how to look up your definitions. See Dictionary for setup."
       ],
       "table": {
-        "one": "Searches for the definition directly, assuming there are no sub-keys for the phrase in your dictionary.",
-        "two": "Searches for the definition assuming a phrase may contain a sub-key or a key that is dotted and may also contain a sub-key.",
+        "one": [
+          "Searches for the definition directly, assuming there are no sub-keys ",
+          "for the phrase in your dictionary."
+        ],
+        "two": [
+          "Searches for the definition assuming a phrase may contain a ",
+          "sub-key or a key that is dotted and may also contain a sub-key."
+        ],
         "three": "Searches for the definition by parsing the dictionary object in a dotted way."
       }
     },
     "arg": {
-      "note": "There are different types of data that arg can accept and will interpret them based on the data.",
+      "note": [
+        "There are different types of data that arg can accept and ",
+        "will interpret them based on the data."
+      ],
       "table": {
         "one": "gengo will interpret a String as sprintf, locale, or count.",
         "two": "gengo will interpret an Array as sprintf.",
@@ -82,7 +91,8 @@
         },
         "note": [
           "If your language or locale is not in the ",
-          "[maps list](https://github.com/iwatakeshi/gengojs/tree/master/maps)[blank], please Fork or Pull to improve gengo.js."
+          "[maps list](https://github.com/iwatakeshi/gengojs/tree/master/maps)[blank], ",
+          "please Fork or Pull to improve gengo.js."
         ]
       }
     }
@@ -142,10 +152,16 @@
     ],
     "note": {
       "one": {
-        "default": "The key, *index*, always refers to **/** and cannot be changed. The keys must follow the URL path.",
+        "default": [
+          "The key, *index*, always refers to **/** and cannot be changed.",
+          " The keys must follow the URL path."
+        ],
         "note": "gengo supports version numbers in URLs. The following is the regex for version numbers:"
       },
-      "two": "When you use Brackets or Dot notation, you must provide the same definition in your native dictionary (default locale)."
+      "two": [
+        "When you use Brackets or Dot notation, you must provide the same ",
+        "definition in your native dictionary (default locale)."
+      ]
     },
     "keyword": {
       "info": [
@@ -162,6 +178,22 @@
           "then you may access anything from the universe key to be used in the about page."
         ]
       }
+    },
+    "markdown": {
+      "info": [
+        "gengo.js has a built-in and customized markdown parser ",
+        "that enables you to insert basic formatting into your phrase.",
+        "This will allow you to focus on other things rather than worry ",
+        "about the tedious process of inserting html into your phrases."
+      ],
+      "note": "Links supports the following targets:"
+    },
+    "multiline": {
+      "info": [
+        "There are cases when writing long phrases into your dictionary makes ",
+        "it hard to keep the format short and sweet. To overcome this problem, ",
+        "gengo allows you to use arrays in your dictionary."
+      ]
     }
   }
 }
