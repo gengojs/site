@@ -55,7 +55,7 @@
       }
     },
     "arg": {
-      "note": "Argが受け入れて翻訳できる色々なタイプのデータがあります。",
+      "info": "Argが受け入れて翻訳できる色々なタイプのデータがあります。",
       "table": {
         "one": "gengoはsprintf、locale、またはcountをStringとしてを解釈します。",
         "two": "gengoはArrayをsprintfとして解釈します。",

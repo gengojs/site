@@ -63,7 +63,7 @@
       }
     },
     "arg": {
-      "note": [
+      "info": [
         "There are different types of data that arg can accept and ",
         "will interpret them based on the data."
       ],
