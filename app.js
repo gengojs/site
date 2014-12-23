@@ -10,11 +10,12 @@ var gengo = require('gengojs');
 gengo.config({
     extension: 'json',
     directory:{
-        path:__dirname + '/config/locales/'
+        path:'./config/locales/'
     },
     supported:['ja', 'en-us'],
     default: 'en-us',
-    debug:['info','warn', 'error']
+    debug:['info','warn', 'error'],
+    markdown: true
 });
 
 var routes = require('./routes/index');
