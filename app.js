@@ -12,8 +12,8 @@ gengo.config({
     directory:{
         path:__dirname + '/config/locales/'
     },
-    supported:['ja', 'en-us'],
-    default: 'en-us',
+    supported:['ja', 'en'],
+    default: 'en',
     debug:['info','warn', 'error'],
     markdown: true
 });
