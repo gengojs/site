@@ -10,7 +10,7 @@ var gengo = require('gengojs');
 gengo.config({
     extension: 'json',
     directory:{
-        path:path.join(__dirname, '/config/locales')
+        path:__dirname + '/config/locales/'
     },
     supported:['ja', 'en-us'],
     default: 'en-us',
