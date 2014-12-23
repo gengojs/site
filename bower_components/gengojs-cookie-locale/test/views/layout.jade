@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    script(src='/jquery/dist/jquery.min.js')
+    script(src='/jquery-cookie/jquery.cookie.js')
+    script(src='/../../gcl.js')
+    script.
+      $(document).ready(function(){
+          var gengo = new gcl();
+          $('.en-us, .ja').click(function(){
+              gengo.setLocale(this);
+            });
+      });
