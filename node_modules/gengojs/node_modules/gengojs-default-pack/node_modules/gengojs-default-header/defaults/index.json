@@ -1,0 +1,15 @@
+{
+  "detect": {
+    "query": false,
+    "subdomain": false,
+    "url": false,
+    "cookie": false,
+    "header": true
+  },
+  "keys": {
+    "cookie": "locale",
+    "query": "locale"
+  },
+  "supported": ["en-US"],
+  "default": "en-US"
+}

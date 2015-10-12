@@ -1,8 +1,13 @@
-// Yeti 3.2.0
+// Yeti 3.3.5
 // Bootswatch
 // -----------------------------------------------------
 
-@import url("//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
+@web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700";
+
+.web-font(@path) {
+  @import url("@{path}");
+}
+.web-font(@web-font-path);
 
 // Navbar =====================================================================
 
@@ -249,6 +254,11 @@ label,
   font-weight: normal;
 }
 
+input[type="radio"],
+input[type="checkbox"] {
+  margin-top: 1px;
+}
+
 // Navs =======================================================================
 
 .nav {
@@ -312,12 +322,14 @@ label,
     }
   }
 
-  &-lg > li > a {
+  &-lg > li > a,
+  &-lg > li > span {
     padding-left: 22px;
     padding-right: 22px;
   }
 
-  &-sm > li > a {
+  &-sm > li > a,
+  &-sm > li > span {
     padding: 0 5px;
   }
 }

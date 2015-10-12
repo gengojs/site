@@ -1,0 +1,26 @@
+{
+  "api": {
+    "p1": "The following API is respect to the default plugins and may vary. Please refer the the developer's plugin page.",
+    "p2": "When you pass a phrase, there are three notations that can be used to tell gengo how to look up your definitions. See Dictionary for setup.",
+    "ul1": {
+      "li1": "The phrase to look for in the requested locale."
+    },
+    "ul3": {
+      "li1": "The phrase to look for in the requested locale.",
+      "li2": "The locale to override."
+    },
+    "ul4": {
+      "li1": "Searches for the definition directly, assuming there are no sub-keys for the phrase in your dictionary."
+    },
+    "ul5": {
+      "li1": "Searches for the definition assuming a phrase may contain a sub-key or a key that is dotted and may also contain a sub-key."
+    },
+    "ul6": {
+      "li1": "Searches for the definition by searching the dictionary's object in a dotted way."
+    }
+  },
+  "intro": {
+    "p1": "gengo.js is a server agnostic i18n/l10n library that is powered by it's very small <a href='https://github.com/gengojs/core'>core</a>.\nAlong with the core, it is also managed by six plugins.\nThe combinations of the these create a powerful and a unique library that enables developers to take over the core and extend its capabilities.\nThe core is essentially a unit that provides the basics such as a way of accessing a plugin's options or the plugin itself.",
+    "p2": "You can simply initialize gengo.js by requiring and configuring it.\nSee Options."
+  }
+}

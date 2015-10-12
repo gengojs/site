@@ -1,30 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var compression = require('compression');
-var gengo = require('gengojs');
-
-gengo.config({
-    extension: 'json',
-    directory:{
-        path:__dirname + '/config/locales/'
-    },
-    supported:['ja', 'en'],
-    default: 'en',
-    debug:['info','warn', 'error'],
-    markdown: true
-});
+var express      = require('express'),
+    path         = require('path'),
+    favicon      = require('serve-favicon'),
+    logger       = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser   = require('body-parser'),
+    compression  = require('compression'),
+    engine       = require('ejs-mate'),
+    gengo        = require('gengojs');
 
 var routes = require('./routes/index');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.engine('ejs', engine);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
 app.use(compression({
     threshold: 512
@@ -39,7 +30,19 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(gengo.init);
+app.use(gengo({
+  backend:{
+    directory: path.join(__dirname, '/locales')
+  },
+  header:{
+    supported:['ja', 'en-us'],
+    default: 'en-us',
+    detect:{
+      cookie:true,
+      header:false
+    }
+  }
+}));
 
 app.use('/', routes);
 

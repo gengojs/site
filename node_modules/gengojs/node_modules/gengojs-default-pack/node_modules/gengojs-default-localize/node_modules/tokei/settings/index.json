@@ -1,0 +1,16 @@
+{
+    "locale": "en-US",
+    "options": {
+        "date": {
+            "weekday": "short",
+            "year": "numeric",
+            "month": "short",
+            "day": "numeric"
+        },
+        "time": {
+            "hour": "numeric",
+            "minute": "numeric",
+            "second": "numeric"
+        }
+    }
+}

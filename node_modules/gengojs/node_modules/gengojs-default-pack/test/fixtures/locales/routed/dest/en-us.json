@@ -1,0 +1,16 @@
+{
+  "index": {
+    "Hello": "Hello"
+  },
+  "about": {
+    "Hello": "Hello"
+  },
+  "api": {
+    "v1.0": {
+      "Hello": "Hello"
+    }
+  },
+  "global": {
+    "Hello world!": "Hello world!"
+  }
+}

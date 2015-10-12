@@ -1,0 +1,29 @@
+<% layout('layout') -%>
+<header>
+  <div class="github-fork-ribbon-wrapper left">
+    <div class="github-fork-ribbon"><a href="https://www.github.com/iwatakeshi/gengojs" target="_blank">Fork me on GitHub
+        <div class="fa fa-github"></div></a></div>
+  </div>
+</header>
+<!--main section-->
+<%- partial('./partials/banner') %>
+<section>
+  <div class="content">
+  <%- _.unescape(partial('./partials/intro')) %>
+  </div>
+</section>
+<footer>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content">
+        <ul class="list-unstyled">
+          <li class="pull-right"><a href="#top">Back to top</a></li>
+          <li>
+            This is an open source project licensed under MIT by
+            <a href="https://twitter.com/iwatakeshi" target="_blank">@iwatakeshi</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

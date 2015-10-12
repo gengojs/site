@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!--<title><%= title %></title>-->
+	<!-- Meta -->
+	<meta name="description" content="the best i18n middleware for Node.js">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="LrbjjQ-sJZNI39mYvF_tPz_Fq3bdkmMlCORd5kzd9ec">
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="/normalize-css/normalize.css">
+	<link rel="stylesheet" href="/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/bootswatch/simplex/bootstrap.min.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans|Nunito">
+	<link rel="stylesheet" href="/animate.css/animate.min.css">
+	<link rel="stylesheet" href="/prism/themes/prism.css">
+	<link rel="stylesheet" href="/github-fork-ribbon-css/gh-fork-ribbon.min.css">
+	<link rel="stylesheet" href="/stylesheets/style.min.css">
+	<!--[if lt IE 9]>
+	<link rel='stylesheet' href='/github-fork-ribbon-css/gh-fork-ribbon.ie.min.css'>
+	<![endif]-->
+</head>
+<body>
+	<%- body %>
+	
+	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/javascripts/scroll.min.js"></script>
+	<script type="text/javascript" src="/prism/prism.js"></script>
+	<script type="text/javascript" src="/prism/components/prism-bash.js"></script>
+	<script type="text/javascript" src="/javascripts/tracking.min.js"></script>
+	<script type="text/javascript" src="/jquery-cookie/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/gengojs-cookie-locale/gcl.min.js"></script>
+	<script>
+		$(document).ready(function(){
+				$('.en, .ja').click(function(){
+						gcl().setLocale(this);
+				})
+		})
+	</script>
+	
+</body>
+</html>

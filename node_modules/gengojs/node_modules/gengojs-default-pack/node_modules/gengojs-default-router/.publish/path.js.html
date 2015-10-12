@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>gengo.js/plugin/router</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/cayman.css">
+    <link rel="stylesheet" href="css/prism.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">gengo.js/plugin/router</h1>
+      <h2 class="project-tagline">The default router plugin for gengo.js</h2><a href="https://github.com/gengojs/plugin-router" target="_blank" class="btn">View on GitHub</a><a href="https://npmjs.com/package/gengojs-default-router" target="_blank" class="btn">View on npm</a>
+    </section>
+    <section data-spy="scroll" data-target=".scrollspy" class="main-content">
+      <div class="row">
+        <div class="col-md-3 col-xs-3 bs-docs-sidebar">
+          <ul id="sidebar" class="nav nav-stacked fixed">
+            <li><a href="index.html">Main</a></li>
+            <li><a href="index.js.html">index.js</a></li>
+            <li class="active"><a href="path.js.html">path.js
+                <ul class="nav nav-stacked">
+                  <li><a href="#Path"><i class="alert alert-success"></i><span>Path</span></a>
+                  </li>
+                  <li><a href="#isLocale"><i class="alert alert-info"></i><span>isLocale</span></a>
+                  </li>
+                  <li><a href="#toArray"><i class="alert alert-info"></i><span>toArray</span></a>
+                  </li>
+                  <li><a href="#toDot"><i class="alert alert-info"></i><span>toDot</span></a>
+                  </li>
+                </ul></a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <section id="Path">
+            <h1>Path</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-success radius ctx-type">class</div><span>&nbsp;</span><span>new Path()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>This class converts the path to<br />an array or a dotted path</p></div>
+          <pre><code class="language-javascript">class Path {
+  constructor(path) {
+      // If the string contains favico.ico
+      // replace it with an empty string
+      this.path = path.replace('favicon.ico', '');
+    }</code></pre>
+          <section id="isLocale">
+            <h1>isLocale</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>Path.prototype.isLocale()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>str</td>
+                <td>String</td>
+                <td><p>The string to determine</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Boolean</td>
+                <td><p>Returns true if the string contains a locale.</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Determines if the string contains a locale</p></div>
+          <pre><code class="language-javascript">isLocale(str) {
+    str = str.toLowerCase().replace('-', '_');
+    // Compare the locales against cldr
+    return _.contains(cldr.localeIds, str);
+  }</code></pre>
+          <section id="toArray">
+            <h1>toArray</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>Path.prototype.toArray()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>path</td>
+                <td>String</td>
+                <td><p>The path to convert</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Array</td>
+                <td><p>The array that represents the path.</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Converts the path into an array.</p></div>
+          <pre><code class="language-javascript">toArray(path) {
+    path = path ? path.split('/') : this.path.split('/');
+    var filtered = [],
+      result = [];
+    var version = /\d{1,2}(\.)\d{1,2}((\.)\d{1,2})?$/;
+    if (path.length &lt; 3) {
+      // It's safe to say that path[0] will always be ''
+      // so add the second '' and define it as the index
+      if (path[1] === '') {
+        result.push('index');
+      } else {
+        // Make sure the path does not contain a locale
+        // and maybe something does exist besides ''? (precaution)
+        if (!this.isLocale(path[1])) result.push(path[1]);
+      }
+    } else {
+      // For every item in the path
+      // check to see if it contains a version or
+      // if it's a regular name, then add it to the 
+      // filtered array
+      _.forEach(path, function(item) {
+        //Make sure the path does not contain a locale
+        if (!this.isLocale(item))
+          if (item.match(version)) {
+            // Prevent the version dots from being
+            // interpreted as a dot notation
+            filtered.push(item.replace('.', '*'));
+          } else {
+            filtered.push(item);
+          }
+      }, this);
+
+      path = filtered;
+      // Once we have filtered 
+      for (var count = 1; count &lt; path.length; count++) {
+        // Make sure the path does not contain a locale
+        if (!this.isLocale(path[count]))
+          if (count === 1) {
+            if (path[count] === '') result.push('index');
+            else result.push(path[count]);
+          } else {
+            // Make sure nothing else is empty
+            if (path[count] !== '') result.push(path[count]);
+          }
+      }
+    }
+    return result;
+  }</code></pre>
+          <section id="toDot">
+            <h1>toDot</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>Path.prototype.toDot()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>array</td>
+                <td>Array</td>
+                <td><p>The array that contains the path</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>String</td>
+                <td><p>The dotted path</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Converts an array to a dotted path</p></div>
+          <pre><code class="language-javascript">toDot(array) {
+  array = array ? array : this.toArray();
+  if (array.length &gt; 1) return array.join().replace(/,/g, '.');
+  else return array[0];
+}
+}
+
+export default Path;</code></pre>
+          <div class="footer site-footer">
+            <div class="span site-footer-owner"><a href="https://github.com/mr-doc/mr-doc-theme-cayman">Cayman</a> is maintained by <a href="https://github.com/iwatakeshi">iwatakeshi</a>.</div>
+            <div class="span site-footer-credits">This page was generated by <a href="https://github.com/mr-doc/mr-doc">Mr. Doc</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/affix.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/scrollspy.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/prism-bash.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('body').scrollspy({
+          target: ".bs-docs-sidebar",
+          offset: 40
+        });
+        $('#sidebar').affix({
+          offset:{
+            bottom:60,
+            top: 60
+          }
+        }) 
+      });
+    </script>
+  </body>
+</html>

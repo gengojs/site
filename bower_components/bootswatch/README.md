@@ -7,9 +7,12 @@ Usage
 -----
 Download the `bootstrap.min.css` file associated with a theme and replace Bootstrap's default stylesheet.
 
-The themes are also hosted on [BootstrapCDN](http://www.bootstrapcdn.com/).
+The themes are also hosted on [BootstrapCDN](http://www.bootstrapcdn.com/bootswatch/).
 
-Rails users should check out [twitter-bootswatch-rails](https://github.com/scottvrosenthal/twitter-bootswatch-rails).
+ Rails users should check out:
+
+* [twitter-bootswatch-rails](https://github.com/scottvrosenthal/twitter-bootswatch-rails) if using _LESS_.
+* [bootswatch-rails](https://github.com/maxim/bootswatch-rails) if using _SASS_.
 
 
 Customization
@@ -17,6 +20,8 @@ Customization
 Bootswatch is open source and you’re welcome to modify the themes.
 
 Each theme consists of two LESS files. `variables.less`, which is included by default in Bootstrap, allows you to customize [these settings](http://getbootstrap.com/customize/#less-variables). `bootswatch.less` introduces more extensive structural changes.
+
+These files are also available in SASS.
 
 Check out the [Help page](http://bootswatch.com/help/) for more details on building your own theme.
 
@@ -34,15 +39,17 @@ Author
 Thomas Park
 
 + http://github.com/thomaspark
-+ http://thomaspark.me
++ http://thomaspark.co
 
 Thanks
 ------
-[Mark Otto](http://github.com/markdotto) and [Jacob Thornton](http://github.com/fat) for [Bootstrap](https://github.com/twitter/bootstrap).
+[Mark Otto](https://github.com/mdo) and [Jacob Thornton](https://github.com/fat) for [Bootstrap](https://github.com/twbs/bootstrap).
 
 [Jenil Gogari](http://www.jgog.in/) for his contributions to the Flatly theme.
 
-[James Taylor](http://github.com/jostylr) for [cors-lite](https://github.com/jostylr/cors-lite).
+[James Taylor](https://github.com/jostylr) for [cors-lite](https://github.com/jostylr/cors-lite).
+
+[Corey Sewell](https://github.com/cjsewell) for SASS conversion.
 
 
 Copyright and License
