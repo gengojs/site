@@ -17,44 +17,17 @@ __('Hello {{name}}, is today {{weather}}?', { name:'Bob', weather: 'sunny' });
 </code></pre>
 <h4>Notations</h4>
 <h5>Phrase Notation</h5>
-<pre><code class="language-javascript">// Assuming the locale === 'ja':
-
-// A basic phrase returns 'こんにちは'
-__('Hello');
-
-// A basic phrase with sprintf returns 'Bob こんにちは'
-__('Hello %s', 'Bob');
-
-// A basic phrase with interpolation returns 'Bob こんにちは'
- __('Hello {{name}}', {name:'Bob'});
-</code></pre>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code1")) %></code></pre>
+</div>
 <h5>Bracket Notation</h5>
-<pre><code class="language-javascript">// Assuming the locale === 'ja':
-
-// A basic bracket phrase returns 'こんにちは'
-__('[Hello]');
-
-// A basic bracket phrase with nested keys returns 'おっす'
-__('[Hello].informal');
-
-// A basic bracket phrase with sprintf returns 'Bob おっす'
-__('[Hello %].informal', 'Bob');
-
-// A basic bracket phrase with interpolation returns 'Bob おっす'
-__('[Hello {{name}}].informal', {name:'Bob'});
-</code></pre>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code2")) %></code></pre>
+</div>
 <h5>Dot Notation</h5>
-<pre><code class="language-javascript">// Assuming the locale === 'ja':
-
-// A basic dot phrase returns 'おっす'
-__('greeting.hello.informal');
-
-// A basic dot phrase with sprintf returns 'Bob おっす'
-__('greeting.hello.person.informal', 'Bob');
-
-// A basic dot phrase with interpolation returns 'Bob おっす'
-__('greeting.hello.person.informal', {name:'Bob'});
-</code></pre>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code3")) %></code></pre>
+</div>
 <h4>Message Format</h4>
 <div class="gengo">
 <p><%= __("api.p2") %></p>
@@ -62,17 +35,6 @@ __('greeting.hello.person.informal', {name:'Bob'});
 <div class="gengo">
 <p><%= __("api.p3") %></p>
 </div>
-<pre><code class="language-javascript">// Assuming the locale === 'en-us':
-
-// A basic phrase with message formatting
-// returns "You took 4,000 pictures since Jan 1, 2015 9:33:04 AM"
-__('You took {n,number} pictures since {d,date} {d,time}', { n:4000, d:new Date() }, { parser: 'format' });
-
-// A basic bracket phrase with message formatting
-// returns "You took 4,000 pictures since Jan 1, 2015 9:33:04 AM"
-__('[You took {n,numbers} pictures].since.date', { n:4000, d:new Date() }, { parser: 'format' });
-
-// A basic dot phrase with message formatting
-// returns "You took 4,000 pictures since Jan 1, 2015 9:33:04 AM"
-__('pictures.since.date', { n:4000, d:new Date() }, { format: 'parser' });
-</code></pre>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code4")) %></code></pre>
+</div>
