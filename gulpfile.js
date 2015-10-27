@@ -8,7 +8,7 @@ gulp.task('git:clone', function(){
 
 gulp.task('move:docs:html',['git:clone'], function(){
 	return gulp.src('docs/dist/html/*.ejs')
-	.pipe(gulp.dest('view/partials/'));
+	.pipe(gulp.dest('views/partials/'));
 });
 
 gulp.task('move:docs:json',['git:clone'], function(){

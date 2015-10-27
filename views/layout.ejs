@@ -37,7 +37,22 @@
 		$(document).ready(function(){
 				$('.en, .ja').click(function(){
 						gcl().setLocale(this);
-				})
+				});
+				
+				$.get("http://npmsearch.com/query", {
+						q: 'gengo.js',
+						fields: ["name", "version"].join(',')
+				}, function (data) {
+						var gengojs = JSON.parse(data).results.filter(function (item) {
+								return item.name[0] === 'gengojs';
+						}).map(function (item) {
+								return {
+										name: item.name[0],
+										version: item.version[0]
+								};
+						})[0];
+					$('#npm').text(gengojs.version);
+				});
 		})
 	</script>
 	

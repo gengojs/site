@@ -2,121 +2,77 @@
 <div class="gengo">
 <p><%= __("api.p1") %></p>
 </div>
-<h3>Input</h3>
-<div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Data Type</th>
-                <th>Option</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>String</td>
-                <td>phrase</td>
-                <td>
-                	<ul>
-                		<li class="gengo"><%= __("api.ul2.li2") %></li>
-                	</ul>
-                </td>
-                <td>
-                	<pre>                		<code class="language-javascript">
-                			__("phrase");
-                		</code>
-                	</pre>
-                </td>
-            </tr>
-            <tr>
-                <td>Object</td>
-                <td>
-                	<ul>
-                		<li>phrase</li>
-                		<li>locale</li>
-                	</ul>
-                </td><td>
-                	<ul>
-                		<li class="gengo"><%= __("api.ul4.li2") %></li>
-                		<li class="gengo"><%= __("api.ul4.li3") %></li>
-                	</ul>
-                </td><td>
-                	<pre>						<code class="language-javascript">
-							__({phrase:/*String, Array*/});
-							__({locale:/*String*/});
-                		</code>
-                	</pre>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<h3>Notation</h3>
+<h3>i18n</h3>
+<h4>API</h4>
+<pre><code class="language-javascript">// String
+__('Hello');
+// Object
+__({ phrase:'Hello', locale: 'ja', parser:'format' });
+
+// Array
+__('Hello %s, is today %s?', ['Bob', 'sunny']);
+// Object
+__('Hello {{name}}, is today {{weather}}?', { name:'Bob', weather: 'sunny' });
+
+</code></pre>
+<h4>Notations</h4>
+<h5>Phrase Notation</h5>
+<pre><code class="language-javascript">// Assuming the locale === 'ja':
+
+// A basic phrase returns 'こんにちは'
+__('Hello');
+
+// A basic phrase with sprintf returns 'Bob こんにちは'
+__('Hello %s', 'Bob');
+
+// A basic phrase with interpolation returns 'Bob こんにちは'
+ __('Hello {{name}}', {name:'Bob'});
+</code></pre>
+<h5>Bracket Notation</h5>
+<pre><code class="language-javascript">// Assuming the locale === 'ja':
+
+// A basic bracket phrase returns 'こんにちは'
+__('[Hello]');
+
+// A basic bracket phrase with nested keys returns 'おっす'
+__('[Hello].informal');
+
+// A basic bracket phrase with sprintf returns 'Bob おっす'
+__('[Hello %].informal', 'Bob');
+
+// A basic bracket phrase with interpolation returns 'Bob おっす'
+__('[Hello {{name}}].informal', {name:'Bob'});
+</code></pre>
+<h5>Dot Notation</h5>
+<pre><code class="language-javascript">// Assuming the locale === 'ja':
+
+// A basic dot phrase returns 'おっす'
+__('greeting.hello.informal');
+
+// A basic dot phrase with sprintf returns 'Bob おっす'
+__('greeting.hello.person.informal', 'Bob');
+
+// A basic dot phrase with interpolation returns 'Bob おっす'
+__('greeting.hello.person.informal', {name:'Bob'});
+</code></pre>
+<h4>Message Format</h4>
 <div class="gengo">
 <p><%= __("api.p2") %></p>
 </div>
-<div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Notation</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Phrase</td>
-                <td>
-                    <ul>
-                        <li class="gengo"><%= __("api.ul5.li2") %></li>
-                    </ul>
-                </td>
-                <td>
-                    <pre>                        <code class="language-javascript">
-                            // Phrase
-                            __("Hello World");
-                        </code>
-                    </pre>
-                </td>
-            </tr>
-            <tr>
-                <td>Brackets</td>
-                <td>
-                    <ul>
-                        <li class="gengo"><%= __("api.ul6.li2") %></li>
-                    </ul>
-                </td>
-                <td>
-                    <pre>                        <code class="language-javascript">
-                            // Phrase
-                            __("[Hello World]");
-                            // Phrase + subkey
-                            __("[Hello World].subkey");
-                            // Dotted key
-                            __("[navbar.home]");
-                            // Dotted key + subkey
-                            __("[navbar.home].subkey");
-                        </code>
-                    </pre>
-                </td>
-            </tr>
-            <tr>
-                <td>Dot</td>
-                <td>
-                    <ul>
-                        <li class="gengo"><%= __("api.ul7.li2") %></li>
-                    </ul>
-                </td>
-                <td>
-                <pre>                    <code class="language-javascript">
-                        // Dotted parsing
-                        __("navbar.home.subkey");
-                    </code>
-                </pre>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="gengo">
+<p><%= __("api.p3") %></p>
 </div>
+<pre><code class="language-javascript">// Assuming the locale === 'en-us':
+
+// A basic phrase with message formatting
+// returns "You took 4,000 pictures since Jan 1, 2015 9:33:04 AM"
+__('You took {n,number} pictures since {d,date} {d,time}', { n:4000, d:new Date() }, { parser: 'format' });
+
+// A basic bracket phrase with message formatting
+// returns "You took 4,000 pictures since Jan 1, 2015 9:33:04 AM"
+__('[You took {n,numbers} pictures].since.date', { n:4000, d:new Date() }, { parser: 'format' });
+
+// A basic dot phrase with message formatting
+// returns "You took 4,000 pictures since Jan 1, 2015 9:33:04 AM"
+__('pictures.since.date', { n:4000, d:new Date() }, { format: 'parser' });
+</code></pre>
