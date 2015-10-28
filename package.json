@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "compression": "^1.6.0",
+    "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-git": "^1.5.0",
     "rimraf": "^2.4.3"

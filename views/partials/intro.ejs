@@ -1,4 +1,4 @@
-<h2>Introduction</h2>
+<h1>Introduction</h1>
 <div class="gengo">
 <p><%= __("intro.p1") %></p>
 </div>
@@ -10,7 +10,7 @@ sudo npm install gengojs --save
 <div class="gengo">
 <p><%= __("intro.p2") %></p>
 </div>
-<h4>Express</h4>
+<h3>Express</h3>
 <pre><code class="language-javascript">var gengo = require('gengojs');
 var app = require('express')();
 
@@ -20,7 +20,7 @@ app.use(gengo({
 	'router': { 'enabled': true }
 }));
 </code></pre>
-<h4>Koa</h4>
+<h3>Koa</h3>
 <pre><code class="language-javascript">var gengo = require('gengojs/koa');
 var app = require('koa')();
 
@@ -30,7 +30,7 @@ app.use(gengo({
 	'router': { 'enabled': true }
 }));
 </code></pre>
-<h4>Hapi</h4>
+<h3>Hapi</h3>
 <pre><code class="language-javascript">var gengo = require('gengojs/hapi');
 var server = new require('hapi').Server();
 

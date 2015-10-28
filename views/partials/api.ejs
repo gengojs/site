@@ -1,9 +1,9 @@
-<h2>API</h2>
+<h1>API</h1>
 <div class="gengo">
 <p><%= __("api.p1") %></p>
 </div>
-<h3>i18n</h3>
-<h4>API</h4>
+<h2>i18n</h2>
+<h3>API</h3>
 <pre><code class="language-javascript">// String
 __('Hello');
 // Object
@@ -15,20 +15,20 @@ __('Hello %s, is today %s?', ['Bob', 'sunny']);
 __('Hello {{name}}, is today {{weather}}?', { name:'Bob', weather: 'sunny' });
 
 </code></pre>
-<h4>Notations</h4>
-<h5>Phrase Notation</h5>
+<h3>Notations</h3>
+<h4>Phrase Notation</h4>
 <div class="gengo">
 <pre><code class="language-javascript"><%= _.unescape(__("api.code1")) %></code></pre>
 </div>
-<h5>Bracket Notation</h5>
+<h4>Bracket Notation</h4>
 <div class="gengo">
 <pre><code class="language-javascript"><%= _.unescape(__("api.code2")) %></code></pre>
 </div>
-<h5>Dot Notation</h5>
+<h4>Dot Notation</h4>
 <div class="gengo">
 <pre><code class="language-javascript"><%= _.unescape(__("api.code3")) %></code></pre>
 </div>
-<h4>Message Format</h4>
+<h3>Message Format</h3>
 <div class="gengo">
 <p><%= __("api.p2") %></p>
 </div>
@@ -37,4 +37,36 @@ __('Hello {{name}}, is today {{weather}}?', { name:'Bob', weather: 'sunny' });
 </div>
 <div class="gengo">
 <pre><code class="language-javascript"><%= _.unescape(__("api.code4")) %></code></pre>
+</div>
+<h2>l10n</h2>
+<h3>API</h3>
+<div class="gengo">
+<p><%= __("api.p4") %></p>
+</div>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code5")) %></code></pre>
+</div>
+<h4><code>date()</code></h4>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code6")) %></code></pre>
+</div>
+<h4><code>time()</code></h4>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code7")) %></code></pre>
+</div>
+<h4><code>number()</code></h4>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code8")) %></code></pre>
+</div>
+<h4><code>moment()</code></h4>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code9")) %></code></pre>
+</div>
+<h4><code>now()</code></h4>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code10")) %></code></pre>
+</div>
+<h4><code>format()</code></h4>
+<div class="gengo">
+<pre><code class="language-javascript"><%= _.unescape(__("api.code11")) %></code></pre>
 </div>
