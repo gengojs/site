@@ -1,7 +1,7 @@
 gengo.js
 =======
 
- the best i18n library for Express
+ The best i18n library for Express
 
 This is the official repo for [gengo.js](http://www.gengojs.com) site.
 If you would like to improve this site in a way, please go ahead and fork it away!
