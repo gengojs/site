@@ -9,7 +9,7 @@
     "body-parser": "~1.14.1",
     "bower": "^1.5.3",
     "cookie-parser": "~1.4.0",
-    "debug": "~2.2.0",
+    "debug": "~4.2.0",
     "ejs": "^2.3.4",
     "ejs-mate": "^2.3.0",
     "express": "*",
